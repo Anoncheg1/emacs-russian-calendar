@@ -10,10 +10,7 @@ Why? Going to be maintained.
 
 # 2024 (updated 22/11/24)
 # 2025 (updated 22/11/24)
-- require updating during the year: Emacs, FSF, GNU, https://nrussiaos.ru/#events
-- NeurIPS 10 dec, but may change.
-- AI Journey 11 dec, but may chage.
-- EmacsConf somewhere in dec.
+Require updating during the year, some conferences may change.
 
 # Usage
 
