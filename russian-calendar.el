@@ -28,6 +28,7 @@
 ;; - Open source conferences: Emacs, FSF, GNU, FOSDEM
 ;; - AI and Russian IT conferences: PyTorh, NeurIPS, IEEE CAI, WAIC,
 ;;   AI Journey dec + TAdviser SummIT nov + CNews Forum nov
+;; - common colendar configuration
 
 ;; Why? Because the dates will be updated per year at least.
 
