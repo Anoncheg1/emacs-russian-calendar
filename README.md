@@ -63,6 +63,7 @@ Conferences:
 - https://events.yandex.ru/
 - https://meetup.tbank.ru/
 - https://opensource.itmo.ru/
+
 Calendars:
 - https://github.com/grafov/russian-holidays
 - https://github.com/unhammer/calendar-norway.el/blob/master/calendar-norway.el
