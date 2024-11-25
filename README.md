@@ -66,3 +66,9 @@ Conferences:
 Calendars:
 - https://github.com/grafov/russian-holidays
 - https://github.com/unhammer/calendar-norway.el/blob/master/calendar-norway.el
+
+# other packages
+- Navigation in Dired, Packages, Buffers modes https://github.com/Anoncheg1/firstly-search
+- Search with Chinese https://github.com/Anoncheg1/pinyin-isearch
+- Ediff fix https://github.com/Anoncheg1/ediffnw
+- Dired history https://github.com/Anoncheg1/dired-hist
