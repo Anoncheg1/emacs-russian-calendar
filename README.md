@@ -3,7 +3,7 @@ What?
 - Russian holidays and Valentine's Day, April Fools' Day, Halloween
 - Open source conferences: Emacs, FSF, GNU, FOSDEM
 - AI and Russian IT conferences: PyTorh, NeurIPS, IEEE CAI, WAIC, AI Journey dec + TAdviser SummIT nov + CNews Forum nov
-
+- some common calendar configuration
 Why? Going to be maintained.
 
 # 2024 (updated 22/11/24)
