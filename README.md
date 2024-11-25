@@ -1,7 +1,10 @@
 # emacs-russian-calendar
+What?
 - Russian holidays and Valentine's Day, April Fools' Day, Halloween
 - Open source conferences: Emacs, FSF, GNU, FOSDEM
-- AI conferences: PyTorh, NeurIPS, IEEE CAI, WAIC, AI Journey dec + TAdviser SummIT nov + CNews Forum nov
+- AI and Russian IT conferences: PyTorh, NeurIPS, IEEE CAI, WAIC, AI Journey dec + TAdviser SummIT nov + CNews Forum nov
+
+Why? Going to be maintained.
 
 # 2024 (updated 22/11/24)
 # 2025 (updated 22/11/24)
@@ -15,22 +18,26 @@
 ```Elisp
 (require 'calendar)
 (require 'holidays)
-(require 'russian-calendar-2024)
-
-(setopt diary-show-holidays-flag t)
-(setopt calendar-mark-holidays-flag t)
-(setopt calendar-week-start-day 1)
+(require 'russian-calendar)
 
 (setopt calendar-holidays (append russian-calendar-holidays
                                   russian-calendar-general-holidays
-                                  russian-calendar-open-source-confs
-                                  russian-calendar-ai-confs))
+                                  ;; - enable if you need:
+                                  ;; russian-calendar-open-source-confs
+                                  ;; russian-calendar-ai-confs
+                                  ;; russian-calendar-russian-it-confs
+                                  ))
+;; - optional:
+(russian-calendar-localize)
+(russian-calendar-set-location-to-moscow)
+(russian-calendar-show-diary-holidays-in-calendar)
+(russian-calendar-enhance-calendar-movement)
 ```
 
 # sources
 Russian holidays:
-- https://ovodov.me/trud.ics
 - https://www.consultant.ru/law/ref/calendar/proizvodstvennye/2024/
+- https://ovodov.me/trud.ics
 
 Emacs and Open source:
 - FSF https://www.fsf.org/events/aggregator/
@@ -44,12 +51,18 @@ AI
 - NeurIPS https://neurips.cc/
 - IEEE CAI https://ieeecai.org/
 - WAIC https://www.worldaicannes.com
+
+Russian IT
 - AI Journey https://aij.ru/
+- https://summit.tadviser.ru/
+- https://www.cnconf.ru/
 
 # resources
-- https://github.com/grafov/russian-holidays
+Conferences:
 - https://developers.sber.ru/kak-v-sbere/events
 - https://events.yandex.ru/
-- https://tadviser.com/index.php/Company:TAdviser
-- https://www.cnconf.ru/
 - https://meetup.tbank.ru/
+- https://opensource.itmo.ru/
+Calendars:
+- https://github.com/grafov/russian-holidays
+- https://github.com/unhammer/calendar-norway.el/blob/master/calendar-norway.el
