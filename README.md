@@ -33,7 +33,7 @@ Require updating during the year, some conferences may change.
 (russian-calendar-enhance-calendar-movement)
 ```
 
-# sources
+# Sources
 Russian holidays:
 - https://www.consultant.ru/law/ref/calendar/proizvodstvennye/2024/
 - https://ovodov.me/trud.ics
@@ -56,7 +56,7 @@ Russian IT
 - https://summit.tadviser.ru/
 - https://www.cnconf.ru/
 
-# resources
+# Resources
 Conferences:
 - https://developers.sber.ru/kak-v-sbere/events
 - https://events.yandex.ru/
@@ -68,8 +68,11 @@ Calendars:
 - https://github.com/grafov/russian-holidays
 - https://github.com/unhammer/calendar-norway.el/blob/master/calendar-norway.el
 
-# other packages
+# Other packages
 - Navigation in Dired, Packages, Buffers modes https://github.com/Anoncheg1/firstly-search
 - Search with Chinese https://github.com/Anoncheg1/pinyin-isearch
 - Ediff fix https://github.com/Anoncheg1/ediffnw
 - Dired history https://github.com/Anoncheg1/dired-hist
+
+# Screenshot
+![](https://raw.githubusercontent.com/Anoncheg1/public-share/refs/heads/main/cal.png)
