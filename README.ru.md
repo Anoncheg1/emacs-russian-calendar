@@ -1,22 +1,21 @@
-Eng | [Рус](./README.ru.md)
+Eng (./README.md) | Рус
 
 # emacs-russian-calendar
+Что?
+- Производственный календарь
+- Несколько междунородных праздников в generals: День св. Валентина, первое апреля, Хеллоуэн.
+- Опен сорс главные конференции: Emacs, FSF, GNU, FOSDEM.
+- AI и русские IT конференции: PyTorh, NeurIPS, IEEE CAI, WAIC, AI Journey dec + TAdviser SummIT nov + CNews Forum nov.
+- обычные настройки календаря, такие как русификация и временная зона.
 
-What?
-- Russian holidays (changes in working days)
-- Valentine's Day, April Fools' Day, Halloween.
-- Open source conferences: Emacs, FSF, GNU, FOSDEM.
-- AI and Russian IT conferences: PyTorh, NeurIPS, IEEE CAI, WAIC, AI Journey dec + TAdviser SummIT nov + CNews Forum nov.
-- some common calendar configuration.
 
+Зачем? Буду обновлять даты.
 
-Why? Going to be maintained.
+# 2024 (обновлено 22/11/24)
+# 2025 (обновлено 22/11/24)
+Еще буду обновлять даты конференций, производственный календарь скорее всего не измениться, но я проверю перед новым годом.
 
-# 2024 (updated 22/11/24)
-# 2025 (updated 22/11/24)
-Require updating during the year, some conferences may change.
-
-# Usage
+# Использование
 
 ```Elisp
 (require 'calendar)
@@ -30,14 +29,14 @@ Require updating during the year, some conferences may change.
                                   ;; russian-calendar-ai-confs
                                   ;; russian-calendar-russian-it-confs
                                   ))
-;; - optional:
+;; - необязательные настройки, можешь закоментить:
 (russian-calendar-localize)
 (russian-calendar-set-location-to-moscow)
 (russian-calendar-show-diary-holidays-in-calendar)
 (russian-calendar-enhance-calendar-movement)
 ```
 
-# Sources
+# Ссылки
 Russian holidays:
 - https://www.consultant.ru/law/ref/calendar/proizvodstvennye/2024/
 - https://ovodov.me/trud.ics
@@ -72,7 +71,7 @@ Calendars:
 - https://github.com/grafov/russian-holidays
 - https://github.com/unhammer/calendar-norway.el/blob/master/calendar-norway.el
 
-# Other packages
+# Другие мои пакеты
 - Navigation in Dired, Packages, Buffers modes https://github.com/Anoncheg1/firstly-search
 - Search with Chinese https://github.com/Anoncheg1/pinyin-isearch
 - Ediff fix https://github.com/Anoncheg1/ediffnw
