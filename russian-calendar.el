@@ -52,16 +52,17 @@
 ;;; Code:
 
 ;; - May be simple:
+(require 'calendar)
 (require 'cal-dst)
 (require 'solar)
 (require 'russian-calendar-2024)
 
 ;; - Check that we are are at right year.
-(defun get-current-year ()
+(defun russian-calendar-get-current-year ()
   "Return the current year."
   (nth 5 (decode-time (current-time))))
 
-(if (not (= (get-current-year) 2024))
+(if (not (= (russian-calendar-get-current-year) 2024))
     (message "Please update package \"russian-calendar\". \n \
 Or set (require 'russian-calendar-2025) \n \
 Happy new 2025 year!"))
