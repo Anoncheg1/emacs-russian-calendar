@@ -21,8 +21,6 @@ Require updating during the year, some conferences may change.
 # Usage
 
 ```Elisp
-(require 'calendar)
-(require 'holidays)
 (require 'russian-calendar-2024)
 (require 'russian-calendar)
 
