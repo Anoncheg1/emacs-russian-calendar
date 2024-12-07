@@ -2,14 +2,16 @@ Eng (./README.md) | Рус
 
 # emacs-russian-calendar
 Что?
-- Производственный календарь
+- Cветские праздники - производственный календарь.
 - Несколько междунородных праздников в generals: День св. Валентина, первое апреля, Хеллоуэн.
-- Опен сорс главные конференции: Emacs, FSF, GNU, FOSDEM.
+- Основные православные праздники.
+- Старославянские праздники.
+- Конференции открытого кода: Emacs, FSF, GNU, FOSDEM.
 - AI и русские IT конференции: PyTorh, NeurIPS, IEEE CAI, WAIC, AI Journey dec + TAdviser SummIT nov + CNews Forum nov.
 - обычные настройки календаря, такие как русификация и временная зона.
 
 
-Зачем? Буду обновлять даты.
+Зачем? Буду обновлять даты, особенно производственного календаря.
 
 # 2024 (обновлено 22/11/24)
 # 2025 (обновлено 22/11/24)
@@ -66,10 +68,18 @@ Conferences:
 - https://meetup.tbank.ru/
 - https://opensource.itmo.ru/
 
-
 Calendars:
 - https://github.com/grafov/russian-holidays
 - https://github.com/unhammer/calendar-norway.el/blob/master/calendar-norway.el
+
+Orthodox Christian
+- https://news.ru/society/samye-vazhnye-cerkovnye-pravoslavnye-prazdniki-v-2022-godu/
+- https://religion-info.ru/to-the-saints/12-major-orthodox-holidays-list-the-most-important-orthodox-holidays/
+- https://calendar.org.ua/ru/tserkovnyy-kalendar/2024
+
+Old Slavonic
+- https://experience.tripster.ru/articles/samye-izvestnye-slavyanskie-prazdniki/
+- https://en.wikipedia.org/wiki/Solstice
 
 # Другие мои пакеты
 - Navigation in Dired, Packages, Buffers modes https://github.com/Anoncheg1/firstly-search

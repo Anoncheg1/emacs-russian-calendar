@@ -3,8 +3,10 @@ Eng | [Рус](./README.ru.md)
 # emacs-russian-calendar
 
 What?
-- Russian holidays (changes in working days)
-- Valentine's Day, April Fools' Day, Halloween.
+- Russian Production Calendar
+- General International holidays: Valentine's Day, April Fools' Day, Halloween.
+- Key Orthodox Christian Holidays
+- Old Slavic Fests
 - Open source conferences: Emacs, FSF, GNU, FOSDEM.
 - AI and Russian IT conferences: PyTorh, NeurIPS, IEEE CAI, WAIC, AI Journey dec + TAdviser SummIT nov + CNews Forum nov.
 - some common calendar configuration.
@@ -21,11 +23,14 @@ Require updating during the year, some conferences may change.
 ```Elisp
 (require 'calendar)
 (require 'holidays)
+(require 'russian-calendar-2024)
 (require 'russian-calendar)
 
 (setopt calendar-holidays (append russian-calendar-holidays
-                                  russian-calendar-general-holidays
                                   ;; - enable if you need:
+                                  ;; russian-calendar-general-holidays
+                                  ;; russian-calendar-orthodox-christian-holidays
+                                  ;; russian-calendar-old-slavic-fests
                                   ;; russian-calendar-open-source-confs
                                   ;; russian-calendar-ai-confs
                                   ;; russian-calendar-russian-it-confs
@@ -38,7 +43,7 @@ Require updating during the year, some conferences may change.
 ```
 
 # Sources
-Russian holidays:
+Production Calendar:
 - https://www.consultant.ru/law/ref/calendar/proizvodstvennye/2024/
 - https://ovodov.me/trud.ics
 
@@ -67,10 +72,18 @@ Conferences:
 - https://meetup.tbank.ru/
 - https://opensource.itmo.ru/
 
-
 Calendars:
 - https://github.com/grafov/russian-holidays
 - https://github.com/unhammer/calendar-norway.el/blob/master/calendar-norway.el
+
+Orthodox Christian
+- https://news.ru/society/samye-vazhnye-cerkovnye-pravoslavnye-prazdniki-v-2022-godu/
+- https://religion-info.ru/to-the-saints/12-major-orthodox-holidays-list-the-most-important-orthodox-holidays/
+- https://calendar.org.ua/ru/tserkovnyy-kalendar/2024
+
+Old Slavonic
+- https://experience.tripster.ru/articles/samye-izvestnye-slavyanskie-prazdniki/
+- https://en.wikipedia.org/wiki/Solstice
 
 # Other packages
 - Navigation in Dired, Packages, Buffers modes https://github.com/Anoncheg1/firstly-search

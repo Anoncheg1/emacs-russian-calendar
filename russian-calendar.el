@@ -5,7 +5,7 @@
 ;; Author: github.com/Anoncheg1,codeberg.org/Anoncheg
 ;; Keywords: calendar, holidays
 ;; URL: https://github.com/Anoncheg1/emacs-russian-calendar
-;; Version: 0.0.2
+;; Version: 0.0.3
 ;; Package-Requires: ((emacs "28.1"))
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -22,9 +22,10 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; What Include:
+;; What is included:
 ;; - Russian holidays
 ;; - International holidays: Valentine's Day, April Fools' Day, Halloween
+;; - Key Orthodox Christian Holidays
 ;; - Open source conferences: Emacs, FSF, GNU, FOSDEM
 ;; - AI and Russian IT conferences: PyTorh, NeurIPS, IEEE CAI, WAIC,
 ;;   AI Journey dec + TAdviser SummIT nov + CNews Forum nov
@@ -33,10 +34,13 @@
 ;; Why? Because the dates will be updated per year at least.
 
 ;; Usage:
+;; (require 'russian-calendar-2024)
 ;; (require 'russian-calendar)
 ;; (setopt calendar-holidays (append russian-calendar-holidays
-;;                                   russian-calendar-general-holidays
 ;;                                   ;; - enable if you need:
+;;                                   ;; russian-calendar-general-holidays
+;;                                   ;; russian-calendar-orthodox-christian-holidays
+;;                                   ;; russian-calendar-old-slavic-fests
 ;;                                   ;; russian-calendar-open-source-confs
 ;;                                   ;; russian-calendar-ai-confs
 ;;                                   ;; russian-calendar-russian-it-confs
@@ -53,20 +57,88 @@
 
 ;; - May be simple:
 (require 'calendar)
+(require 'holidays)
 (require 'cal-dst)
 (require 'solar)
-(require 'russian-calendar-2024)
 
 ;; - Check that we are are at right year.
 (defun russian-calendar-get-current-year ()
   "Return the current year."
   (nth 5 (decode-time (current-time))))
 
-(if (not (= (russian-calendar-get-current-year) 2024))
-    (message "Please update package \"russian-calendar\". \n \
-Or set (require 'russian-calendar-2025) \n \
-Happy new 2025 year!"))
+(let ((cyear (number-to-string (russian-calendar-get-current-year))))
+  (if (not (string-equal cyear "2024"))
+      (message (concat "Warning: package russian-calendar may be obsolate."))))
 
+
+;; --------- 12 major Orthodox Christian Feasts ------------------
+
+(defvar russian-calendar-orthodox-christian-holidays
+  (mapcar 'purecopy
+  '(
+    (holiday-fixed 1 7 "Рождество Христово")
+    (holiday-fixed 1 19 "Крещение Господне (Богоявление)")
+    (holiday-fixed 2 15 "Сретение Господне")
+    (holiday-fixed 4 7 "Благовещение Пресвятой Богородицы")
+    (holiday-fixed 8 19 "Преображение Господне, Яблочный Спас")
+    (holiday-fixed 8 28 "Успение Пресвятой Богородицы")
+    (holiday-fixed 9 21 "Рождество Пресвятой Богородицы")
+    (holiday-fixed 9 27 "Воздвижение Креста Господня")
+    (holiday-fixed 12 4 "Введение во храм Пресвятой Богородицы")
+    (apply 'append
+           (mapcar (lambda (e)
+                     (apply 'holiday-greek-orthodox-easter e))
+                   (append
+                    '((-48 "Чистый понедельник Великого поста")
+                      ( -7 "Вход Господень в Иерусалим или Вербное воскресенье")
+                      ( 40 "Вознесение Господне")
+                      ( 50 "День Святой Троицы, Пятидесятница"))
+                    ;; (if calendar-christian-all-holidays-flag
+                    ;;     '(
+                    ;;       ()
+                    ;;       )
+                    ;;   )
+                    )))
+    ;; (if calendar-christian-all-holidays-flag
+    ;;     '(
+    ;;       ()))
+    ))
+  "Orthodox christian holidays.")
+
+(defvar russian-calendar-orthodox-christian-holidays-eng
+  (mapcar 'purecopy
+  '(
+    (holiday-fixed 1 7 "Christmas")
+    (holiday-fixed 1 19 "Epiphany")
+    (holiday-fixed 2 15 "Meeting of the Lord")
+    (holiday-fixed 4 7 "Annunciation")
+    (holiday-fixed 8 19 "Transfiguration")
+    (holiday-fixed 8 28 "Dormition of the Theotokos")
+    (holiday-fixed 9 21 "Nativity of the Theotokos")
+    (holiday-fixed 9 27 "Exaltation of the Cross")
+    (holiday-fixed 12 4 "Presentation of the Theotokos")
+    (apply 'append
+           (mapcar (lambda (e)
+                     (apply 'holiday-greek-orthodox-easter e))
+                   (append
+                    '((-48 "Clean Monday of Great Lent")
+                      ( -7 "Palm Sunday")
+                      ( 40 "Ascension")
+                      ( 50 "Trinity Sunday"))
+                    ;; (if calendar-christian-all-holidays-flag
+                    ;;     '(
+                    ;;       ()
+                    ;;       )
+                    ;;   )
+                    )))
+    ;; (if calendar-christian-all-holidays-flag
+    ;;     '(
+    ;;       ()))
+    ))
+  "Orthodox christian holidays.")
+
+
+;; ---------------- Localizations --------------------
 
 (defun russian-calendar-localize()
   "Translate month, days of week, etc to Russian language."
@@ -118,7 +190,8 @@ Optional argument R not used."
   (calendar-cursor-holidays))
 
 (defun russian-calendar-enhance-calendar-movement ()
-    "Display information about current day after movement."
+    "Display information about current diary day after movement.
+With help of so called Fancy buffer of diary entires."
     (advice-add 'calendar-forward-week :after #'russian-calendar-show-holiday)
     (advice-add 'calendar-backward-week :after #'russian-calendar-show-holiday)
     (advice-add 'calendar-forward-day :after #'russian-calendar-show-holiday)
