@@ -61,16 +61,6 @@
 (require 'cal-dst)
 (require 'solar)
 
-;; - Check that we are are at right year.
-(defun russian-calendar-get-current-year ()
-  "Return the current year."
-  (nth 5 (decode-time (current-time))))
-
-(let ((cyear (number-to-string (russian-calendar-get-current-year))))
-  (if (not (string-equal cyear "2024"))
-      (message (concat "Warning: package russian-calendar may be obsolate."))))
-
-
 ;; --------- 12 major Orthodox Christian Feasts ------------------
 
 (defvar russian-calendar-orthodox-christian-holidays
