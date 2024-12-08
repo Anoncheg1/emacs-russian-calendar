@@ -6,7 +6,7 @@
 ;; Keywords: calendar, holidays
 ;; URL: https://github.com/Anoncheg1/emacs-russian-calendar
 ;; Version: 0.0.3
-;; Package-Requires: ((emacs "28.1"))
+;; Package-Requires: ((emacs "29.1"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -22,7 +22,10 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; What is included:
+;;
+;; 2024, 2025  (updated 22/11/24)
+;;
+;; What:
 ;; - Russian holidays
 ;; - International holidays: Valentine's Day, April Fools' Day, Halloween
 ;; - Key Orthodox Christian Holidays
@@ -35,7 +38,6 @@
 ;; Why? Because the dates will be updated per year at least.
 
 ;; Usage:
-;; (require 'russian-calendar-2024)
 ;; (require 'russian-calendar)
 ;; (setopt calendar-holidays (append russian-calendar-holidays
 ;;                                   ;; - enable if you need:
@@ -52,6 +54,10 @@
 ;; (russian-calendar-show-diary-holidays-in-calendar)
 ;; (russian-calendar-enhance-calendar-movement)
 
+;; Features
+;; - select current year at loading time
+;; - if year > 2025, then signat that update required
+
 ;; Other packages:
 
 ;;; Code:
@@ -61,6 +67,30 @@
 (require 'holidays)
 (require 'cal-dst)
 (require 'solar)
+(require 'russian-calendar-2024)
+(require 'russian-calendar-2025)
+
+
+(let ((cyear (number-to-string
+              ; get current year
+              (nth 5 (decode-time (current-time))))))
+  ;; Do we obsolate?
+  (if (not (boundp (intern (concat "russian-calendar-" cyear "-holidays"))))
+      (error "Package russian-calendar is obsolate, please update"))
+
+  (defvaralias 'russian-calendar-holidays
+    (intern (concat "russian-calendar-" cyear "-holidays")))
+  (defvaralias 'russian-calendar-general-holidays
+    (intern (concat "russian-calendar-" cyear "-general-holidays")))
+  (defvaralias 'russian-calendar-open-source-confs
+    (intern (concat "russian-calendar-" cyear "-open-source-confs")))
+  (defvaralias 'russian-calendar-ai-confs
+    (intern (concat "russian-calendar-" cyear "-ai-confs")))
+   (defvaralias 'russian-calendar-russian-it-confs
+    (intern (concat "russian-calendar-" cyear "-russian-it-confs")))
+   (defvaralias 'russian-calendar-old-slavic-fests
+    (intern (concat "russian-calendar-" cyear "-old-slavic-fests"))))
+
 
 ;; --------- 12 major Orthodox Christian Feasts ------------------
 

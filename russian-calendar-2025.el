@@ -6,7 +6,7 @@
 ;; Keywords: calendar, holidays
 ;; URL: https://github.com/Anoncheg1/emacs-russian-calendar
 ;; Version: 0.0.3
-;; Package-Requires: ((emacs "28.1"))
+;; Package-Requires: ((emacs "29.1"))
 
 ;;; Commentary:
 ;;
@@ -14,27 +14,6 @@
 ;;; Code:
 (require 'calendar)
 (require 'holidays)
-
-;; - Check that we are are at right year.
-(let ((cyear (number-to-string
-              ; get current year
-              (nth 5 (decode-time (current-time))))))
-  (if (not (string-equal cyear "2025"))
-      (message
-       (concat "Warning: package russian-calendar-2025 is obsolate."))))
-
-(defvaralias 'russian-calendar-holidays
- 'russian-calendar-2025-holidays)
-(defvaralias 'russian-calendar-general-holidays
- 'russian-calendar-2025-general-holidays)
-(defvaralias 'russian-calendar-open-source-confs
- 'russian-calendar-2025-open-source-confs)
-(defvaralias 'russian-calendar-ai-confs
- 'russian-calendar-2025-ai-confs)
-(defvaralias russian-calendar-russian-it-confs
- 'russian-calendar-2025-russian-it-confs)
-(defvaralias 'russian-calendar-old-slavic-fests
- russian-calendar-2025-old-slavic-fests)
 
 (defvar russian-calendar-2025-holidays
   (mapcar 'purecopy

@@ -21,7 +21,6 @@ Require updating during the year, some conferences may change.
 # Usage
 
 ```Elisp
-(require 'russian-calendar-2024)
 (require 'russian-calendar)
 
 (setopt calendar-holidays (append russian-calendar-holidays
@@ -39,6 +38,10 @@ Require updating during the year, some conferences may change.
 (russian-calendar-show-diary-holidays-in-calendar)
 (russian-calendar-enhance-calendar-movement)
 ```
+
+# Features
+- select current year at loading time
+- if year > 2025, then signat that we are obsolate
 
 # Sources
 Production Calendar:
