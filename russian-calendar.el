@@ -26,6 +26,7 @@
 ;; - Russian holidays
 ;; - International holidays: Valentine's Day, April Fools' Day, Halloween
 ;; - Key Orthodox Christian Holidays
+;; - Old Slavic Fests
 ;; - Open source conferences: Emacs, FSF, GNU, FOSDEM
 ;; - AI and Russian IT conferences: PyTorh, NeurIPS, IEEE CAI, WAIC,
 ;;   AI Journey dec + TAdviser SummIT nov + CNews Forum nov
