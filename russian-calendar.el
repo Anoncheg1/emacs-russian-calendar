@@ -37,6 +37,8 @@
 
 ;; Why? Because the dates will be updated per year at least.
 
+;; Not included: regional holidays.
+
 ;; Usage:
 ;; (require 'russian-calendar)
 ;; (setopt calendar-holidays (append russian-calendar-holidays

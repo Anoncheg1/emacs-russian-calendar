@@ -14,6 +14,7 @@ What?
 
 Why? Going to be maintained.
 
+Not included: regional holidays.
 # 2024 (updated 22/11/24)
 # 2025 (updated 22/11/24)
 Require updating during the year, some conferences may change.
@@ -86,6 +87,8 @@ Old Slavonic
 - https://experience.tripster.ru/articles/samye-izvestnye-slavyanskie-prazdniki/
 - https://en.wikipedia.org/wiki/Solstice
 
+Regional holidays
+- https://normativ.kontur.ru/document?moduleId=41&amp=&documentId=250002
 # Other packages
 - Navigation in Dired, Packages, Buffers modes https://github.com/Anoncheg1/firstly-search
 - Search with Chinese https://github.com/Anoncheg1/pinyin-isearch
