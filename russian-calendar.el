@@ -94,7 +94,7 @@
     (intern (concat "russian-calendar-" cyear "-old-slavic-fests"))))
 
 
-;; --------- 12 major Orthodox Christian Feasts ------------------
+;; --------- Key Orthodox Christian Feasts ------------------
 
 (defvar russian-calendar-orthodox-christian-holidays
   (mapcar 'purecopy
@@ -113,7 +113,9 @@
                      (apply 'holiday-greek-orthodox-easter e))
                    (append
                     '((-48 "Чистый понедельник Великого поста")
-                      ( -7 "Вход Господень в Иерусалим или Вербное воскресенье")
+                      (0 "Пасха, Светлое Христово Воскресение")
+                      ( -7 "Вход Господень в Иерусалим или Вербное воскресенье, начало Страстной седмицы")
+                      ( 9 "Радоница")
                       ( 40 "Вознесение Господне")
                       ( 50 "День Святой Троицы, Пятидесятница"))
                     ;; (if calendar-christian-all-holidays-flag
@@ -145,7 +147,8 @@
                      (apply 'holiday-greek-orthodox-easter e))
                    (append
                     '((-48 "Clean Monday of Great Lent")
-                      ( -7 "Palm Sunday")
+                      (0 "Easter Sunday, Resurrection of Jesus")
+                      ( -7 "Palm Sunday, Holy Week")
                       ( 40 "Ascension")
                       ( 50 "Trinity Sunday"))
                     ;; (if calendar-christian-all-holidays-flag
@@ -219,6 +222,7 @@ With help of so called Fancy buffer of diary entires."
     (advice-add 'calendar-backward-week :after #'russian-calendar-show-holiday)
     (advice-add 'calendar-forward-day :after #'russian-calendar-show-holiday)
     (advice-add 'calendar-backward-day :after #'russian-calendar-show-holiday))
+
 
 (provide 'russian-calendar)
 ;;; russian-calendar.el ends here
