@@ -113,8 +113,8 @@
                      (apply 'holiday-greek-orthodox-easter e))
                    (append
                     '((-48 "Чистый понедельник Великого поста")
+                      ( -7 "Вход Господень в Иерусалим, Вербное воскресенье, Страстная седмица")
                       (0 "Пасха, Светлое Христово Воскресение")
-                      ( -7 "Вход Господень в Иерусалим или Вербное воскресенье, начало Страстной седмицы")
                       ( 9 "Радоница")
                       ( 40 "Вознесение Господне")
                       ( 50 "День Святой Троицы, Пятидесятница"))
@@ -147,8 +147,8 @@
                      (apply 'holiday-greek-orthodox-easter e))
                    (append
                     '((-48 "Clean Monday of Great Lent")
-                      (0 "Easter Sunday, Resurrection of Jesus")
                       ( -7 "Palm Sunday, Holy Week")
+                      (0 "Easter Sunday, Resurrection of Jesus")
                       ( 40 "Ascension")
                       ( 50 "Trinity Sunday"))
                     ;; (if calendar-christian-all-holidays-flag
