@@ -21,22 +21,23 @@ Eng (./README.md) | Рус
 # Использование
 
 ```Elisp
-(require 'calendar)
-(require 'holidays)
 (require 'russian-calendar)
 
 (setopt calendar-holidays (append russian-calendar-holidays
-                                  russian-calendar-general-holidays
                                   ;; - enable if you need:
+                                  ;; russian-calendar-general-holidays
+                                  ;; russian-calendar-orthodox-christian-holidays
+                                  ;; russian-calendar-old-slavic-fests
                                   ;; russian-calendar-open-source-confs
                                   ;; russian-calendar-ai-confs
                                   ;; russian-calendar-russian-it-confs
                                   ))
-;; - необязательные настройки, можешь закоментить:
+;; - optional:
 (russian-calendar-localize)
 (russian-calendar-set-location-to-moscow)
 (russian-calendar-show-diary-holidays-in-calendar)
 (russian-calendar-enhance-calendar-movement)
+(russian-calendar-fix-list-holidays)
 ```
 
 # Ссылки

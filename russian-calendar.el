@@ -5,7 +5,7 @@
 ;; Author: github.com/Anoncheg1,codeberg.org/Anoncheg
 ;; Keywords: calendar, holidays
 ;; URL: https://github.com/Anoncheg1/emacs-russian-calendar
-;; Version: 0.0.3
+;; Version: 0.0.4
 ;; Package-Requires: ((emacs "29.1"))
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -55,6 +55,7 @@
 ;; (russian-calendar-set-location-to-moscow)
 ;; (russian-calendar-show-diary-holidays-in-calendar)
 ;; (russian-calendar-enhance-calendar-movement)
+;; (russian-calendar-fix-list-holidays)
 
 ;; Features
 ;; - select current year at loading time
@@ -223,6 +224,110 @@ With help of so called Fancy buffer of diary entires."
     (advice-add 'calendar-forward-day :after #'russian-calendar-show-holiday)
     (advice-add 'calendar-backward-day :after #'russian-calendar-show-holiday))
 
+(defun russian-calendar-holiday-available-holiday-lists-eng ()
+  "Return a list of all holiday lists.
+This is used by `list-holidays'."
+  (delq
+   nil
+   (list
+    (cons "All" calendar-holidays)
+    (if russian-calendar-holidays
+        (cons "Production Calendar" russian-calendar-holidays)) ; "Производственный календарь"
+    (if russian-calendar-general-holidays
+        (cons "General International" russian-calendar-general-holidays)) ; "Междунородные праздники"
+    (if russian-calendar-orthodox-christian-holidays
+        (cons "Orthodox Christian" russian-calendar-orthodox-christian-holidays)) ; "Православные праздники"
+    (if russian-calendar-old-slavic-fests
+        (cons "Old Slavic Fests" russian-calendar-old-slavic-fests)) ; "Старославянские праздники"
+    (if russian-calendar-open-source-confs
+        (cons "F.O.S.S Confs" russian-calendar-open-source-confs)) ; "FOSS Конференции"
+    (if russian-calendar-ai-confs
+        (cons "A.I Confs" russian-calendar-ai-confs)) ; "AI конференции"
+    (if russian-calendar-russian-it-confs
+        (cons "Russian I.T Confs" russian-calendar-russian-it-confs)) ; "Русские IT конференции"
+    (cons "Ask" nil))))
+
+(defun russian-calendar-holiday-available-holiday-lists ()
+  "Return a list of all holiday lists.
+This is used by `list-holidays'. For 29.3 require fix."
+  (delq
+   nil
+   (list
+    (cons "All" calendar-holidays)
+    (if russian-calendar-holidays
+        (cons "Производственный календарь" russian-calendar-holidays)) ; "Production Calendar"
+    (if russian-calendar-general-holidays
+        (cons "Междунородные праздники" russian-calendar-general-holidays)) ; "General International"
+    (if russian-calendar-orthodox-christian-holidays
+        (cons "Православные праздники" russian-calendar-orthodox-christian-holidays)) ; "Orthodox Christian"
+    (if russian-calendar-old-slavic-fests
+        (cons "Старославянские праздники" russian-calendar-old-slavic-fests)) ; "Old Slavic Fests"
+    (if russian-calendar-open-source-confs
+        (cons "FOSS Конференции" russian-calendar-open-source-confs)) ; "FOSS Confs"
+    (if russian-calendar-ai-confs
+        (cons "AI конференции" russian-calendar-ai-confs)) ; "AI Confs"
+    (if russian-calendar-russian-it-confs
+        (cons "Русские IT конференции" russian-calendar-russian-it-confs)) ; "Russian IT Confs"
+    (cons "Ask" nil))))
+
+(defun russian-calendar-list-holidays (y1 &optional y2 l label)
+"Fixed version.
+With fix of removed capitalize and not displayed-month=2."
+  (interactive
+   (let* ((start-year (calendar-read-sexp
+                       "Starting year of holidays (>0)"
+                       (lambda (x) (> x 0))
+                       (calendar-extract-year (calendar-current-date))))
+          (end-year (calendar-read-sexp
+                     "Ending year (inclusive) of holidays (>=%s)"
+                     (lambda (x) (>= x start-year))
+                     start-year
+                     start-year))
+          (completion-ignore-case t)
+          (lists (holiday-available-holiday-lists))
+          (choice ; (capitalize - FIX: removed capitalize
+                   (completing-read "List (TAB for choices): " lists nil t))
+          (which (if (string-equal choice "Ask")
+                     (symbol-value (read-variable "Enter list name: "))
+                   (cdr (assoc choice lists))))
+          (name (if (string-equal choice "Equinoxes/Solstices")
+                    choice
+                  (if (member choice '("Ask" ""))
+                      "Holidays"
+                    (format "%s Holidays" choice)))))
+     (list start-year end-year which name)))
+  (unless y2 (setq y2 y1))
+  (message "Computing holidays...")
+  (let ((calendar-holidays (or l calendar-holidays))
+        (title (or label "Holidays"))
+        (s (calendar-absolute-from-gregorian (list 2 1 y1)))
+        (e (calendar-absolute-from-gregorian (list 11 1 y2)))
+        (displayed-month (or displayed-month 2)) ; FIX displayed-month=2
+        (displayed-year y1)
+        holiday-list)
+    (while (<= s e)
+      (setq holiday-list (append holiday-list (calendar-holiday-list)))
+      (calendar-increment-month displayed-month displayed-year 3)
+      (setq s (calendar-absolute-from-gregorian
+               (list displayed-month 1 displayed-year))))
+    (save-current-buffer
+      (calendar-in-read-only-buffer holiday-buffer
+        (calendar-set-mode-line
+         (if (= y1 y2)
+             (format "%s for %s" title y1)
+           (format "%s for %s-%s" title y1 y2)))
+        (insert
+         (mapconcat
+          (lambda (x) (concat (calendar-date-string (car x))
+                              ": " (cadr x)))
+          holiday-list "\n")))
+      (message "Computing holidays...done"))))
+
+
+(defun russian-calendar-fix-list-holidays ()
+  "Fix list-holidays bugs: capitalize, displayed-month=2."
+  (advice-add 'list-holidays :override #'russian-calendar-list-holidays)
+  (advice-add 'holiday-available-holiday-lists :override #'russian-calendar-holiday-available-holiday-lists))
 
 (provide 'russian-calendar)
 ;;; russian-calendar.el ends here

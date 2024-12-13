@@ -38,6 +38,7 @@ Require updating during the year, some conferences may change.
 (russian-calendar-set-location-to-moscow)
 (russian-calendar-show-diary-holidays-in-calendar)
 (russian-calendar-enhance-calendar-movement)
+(russian-calendar-fix-list-holidays)
 ```
 
 # Features
