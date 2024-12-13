@@ -227,52 +227,58 @@ With help of so called Fancy buffer of diary entires."
 (defun russian-calendar-holiday-available-holiday-lists-eng ()
   "Return a list of all holiday lists.
 This is used by `list-holidays'."
+  ;; (with-no-warnings
   (delq
    nil
    (list
     (cons "All" calendar-holidays)
-    (if russian-calendar-holidays
+    (if (boundp 'russian-calendar-holidays)
         (cons "Production Calendar" russian-calendar-holidays)) ; "Производственный календарь"
-    (if russian-calendar-general-holidays
+    (if (boundp 'russian-calendar-general-holidays)
         (cons "General International" russian-calendar-general-holidays)) ; "Междунородные праздники"
-    (if russian-calendar-orthodox-christian-holidays
+    (if (boundp 'russian-calendar-orthodox-christian-holidays)
         (cons "Orthodox Christian" russian-calendar-orthodox-christian-holidays)) ; "Православные праздники"
-    (if russian-calendar-old-slavic-fests
+    (if (boundp 'russian-calendar-old-slavic-fests)
         (cons "Old Slavic Fests" russian-calendar-old-slavic-fests)) ; "Старославянские праздники"
-    (if russian-calendar-open-source-confs
+    (if (boundp 'russian-calendar-open-source-confs)
         (cons "F.O.S.S Confs" russian-calendar-open-source-confs)) ; "FOSS Конференции"
-    (if russian-calendar-ai-confs
+    (if (boundp 'russian-calendar-ai-confs)
         (cons "A.I Confs" russian-calendar-ai-confs)) ; "AI конференции"
-    (if russian-calendar-russian-it-confs
+    (if (boundp 'russian-calendar-russian-it-confs)
         (cons "Russian I.T Confs" russian-calendar-russian-it-confs)) ; "Русские IT конференции"
     (cons "Ask" nil))))
 
 (defun russian-calendar-holiday-available-holiday-lists ()
   "Return a list of all holiday lists.
-This is used by `list-holidays'. For 29.3 require fix."
+This is used by `list-holidays'.  For 29.3 require fix."
+  (with-no-warnings
   (delq
    nil
    (list
     (cons "All" calendar-holidays)
-    (if russian-calendar-holidays
+    (if (boundp 'russian-calendar-holidays)
         (cons "Производственный календарь" russian-calendar-holidays)) ; "Production Calendar"
-    (if russian-calendar-general-holidays
+    (if (boundp 'russian-calendar-general-holidays)
         (cons "Междунородные праздники" russian-calendar-general-holidays)) ; "General International"
-    (if russian-calendar-orthodox-christian-holidays
+    (if (boundp 'russian-calendar-orthodox-christian-holidays)
         (cons "Православные праздники" russian-calendar-orthodox-christian-holidays)) ; "Orthodox Christian"
-    (if russian-calendar-old-slavic-fests
+    (if (boundp 'russian-calendar-old-slavic-fests)
         (cons "Старославянские праздники" russian-calendar-old-slavic-fests)) ; "Old Slavic Fests"
-    (if russian-calendar-open-source-confs
+    (if (boundp 'russian-calendar-open-source-confs)
         (cons "FOSS Конференции" russian-calendar-open-source-confs)) ; "FOSS Confs"
-    (if russian-calendar-ai-confs
+    (if (boundp 'russian-calendar-ai-confs)
         (cons "AI конференции" russian-calendar-ai-confs)) ; "AI Confs"
-    (if russian-calendar-russian-it-confs
+    (if (boundp 'russian-calendar-russian-it-confs)
         (cons "Русские IT конференции" russian-calendar-russian-it-confs)) ; "Russian IT Confs"
-    (cons "Ask" nil))))
+    (cons "Ask" nil)))))
 
 (defun russian-calendar-list-holidays (y1 &optional y2 l label)
 "Fixed version.
-With fix of removed capitalize and not displayed-month=2."
+With fix of removed capitalize and not displayed-month=2.
+Argument Y1 start-year.
+Optional argument Y2 end-year.
+Optional argument L list of holidays for selected type.
+Optional argument LABEL name of holidays type."
   (interactive
    (let* ((start-year (calendar-read-sexp
                        "Starting year of holidays (>0)"
@@ -302,7 +308,7 @@ With fix of removed capitalize and not displayed-month=2."
         (title (or label "Holidays"))
         (s (calendar-absolute-from-gregorian (list 2 1 y1)))
         (e (calendar-absolute-from-gregorian (list 11 1 y2)))
-        (displayed-month (or displayed-month 2)) ; FIX displayed-month=2
+        (displayed-month (or (bound-and-true-p displayed-month) 2)) ; FIX displayed-month=2
         (displayed-year y1)
         holiday-list)
     (while (<= s e)
@@ -325,7 +331,7 @@ With fix of removed capitalize and not displayed-month=2."
 
 
 (defun russian-calendar-fix-list-holidays ()
-  "Fix list-holidays bugs: capitalize, displayed-month=2."
+  "Fix `list-holidays' bugs: capitalize, displayed-month=2."
   (advice-add 'list-holidays :override #'russian-calendar-list-holidays)
   (advice-add 'holiday-available-holiday-lists :override #'russian-calendar-holiday-available-holiday-lists))
 
