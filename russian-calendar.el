@@ -232,19 +232,19 @@ This is used by `list-holidays'."
    nil
    (list
     (cons "All" calendar-holidays)
-    (if (boundp 'russian-calendar-holidays)
+    (if (bound-and-true-p russian-calendar-holidays)
         (cons "Production Calendar" russian-calendar-holidays)) ; "Производственный календарь"
-    (if (boundp 'russian-calendar-general-holidays)
+    (if (bound-and-true-p russian-calendar-general-holidays)
         (cons "General International" russian-calendar-general-holidays)) ; "Междунородные праздники"
-    (if (boundp 'russian-calendar-orthodox-christian-holidays)
+    (if (bound-and-true-p russian-calendar-orthodox-christian-holidays)
         (cons "Orthodox Christian" russian-calendar-orthodox-christian-holidays)) ; "Православные праздники"
-    (if (boundp 'russian-calendar-old-slavic-fests)
+    (if (bound-and-true-p russian-calendar-old-slavic-fests)
         (cons "Old Slavic Fests" russian-calendar-old-slavic-fests)) ; "Старославянские праздники"
-    (if (boundp 'russian-calendar-open-source-confs)
+    (if (bound-and-true-p russian-calendar-open-source-confs)
         (cons "F.O.S.S Confs" russian-calendar-open-source-confs)) ; "FOSS Конференции"
-    (if (boundp 'russian-calendar-ai-confs)
+    (if (bound-and-true-p russian-calendar-ai-confs)
         (cons "A.I Confs" russian-calendar-ai-confs)) ; "AI конференции"
-    (if (boundp 'russian-calendar-russian-it-confs)
+    (if (bound-and-true-p russian-calendar-russian-it-confs)
         (cons "Russian I.T Confs" russian-calendar-russian-it-confs)) ; "Русские IT конференции"
     (cons "Ask" nil))))
 
@@ -256,19 +256,19 @@ This is used by `list-holidays'.  For 29.3 require fix."
    nil
    (list
     (cons "All" calendar-holidays)
-    (if (boundp 'russian-calendar-holidays)
+    (if (bound-and-true-p russian-calendar-holidays)
         (cons "Производственный календарь" russian-calendar-holidays)) ; "Production Calendar"
-    (if (boundp 'russian-calendar-general-holidays)
+    (if (bound-and-true-p russian-calendar-general-holidays)
         (cons "Междунородные праздники" russian-calendar-general-holidays)) ; "General International"
-    (if (boundp 'russian-calendar-orthodox-christian-holidays)
+    (if (bound-and-true-p russian-calendar-orthodox-christian-holidays)
         (cons "Православные праздники" russian-calendar-orthodox-christian-holidays)) ; "Orthodox Christian"
-    (if (boundp 'russian-calendar-old-slavic-fests)
+    (if (bound-and-true-p russian-calendar-old-slavic-fests)
         (cons "Старославянские праздники" russian-calendar-old-slavic-fests)) ; "Old Slavic Fests"
-    (if (boundp 'russian-calendar-open-source-confs)
+    (if (bound-and-true-p russian-calendar-open-source-confs)
         (cons "FOSS Конференции" russian-calendar-open-source-confs)) ; "FOSS Confs"
-    (if (boundp 'russian-calendar-ai-confs)
+    (if (bound-and-true-p russian-calendar-ai-confs)
         (cons "AI конференции" russian-calendar-ai-confs)) ; "AI Confs"
-    (if (boundp 'russian-calendar-russian-it-confs)
+    (if (bound-and-true-p russian-calendar-russian-it-confs)
         (cons "Русские IT конференции" russian-calendar-russian-it-confs)) ; "Russian IT Confs"
     (cons "Ask" nil)))))
 
