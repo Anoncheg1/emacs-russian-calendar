@@ -45,6 +45,9 @@ Require updating during the year, some conferences may change.
 - select current year at loading time
 - if year > 2025, then signat that we are obsolate
 
+# Screenshot
+![](https://raw.githubusercontent.com/Anoncheg1/public-share/refs/heads/main/cal.png)
+
 # Sources
 Production Calendar:
 - https://www.consultant.ru/law/ref/calendar/proizvodstvennye/2024/
@@ -90,11 +93,11 @@ Old Slavonic
 
 Regional holidays
 - https://normativ.kontur.ru/document?moduleId=41&amp=&documentId=250002
+- https://github.com/grafov/russian-holidays
+
 # Other packages
 - Navigation in Dired, Packages, Buffers modes https://github.com/Anoncheg1/firstly-search
 - Search with Chinese https://github.com/Anoncheg1/pinyin-isearch
 - Ediff fix https://github.com/Anoncheg1/ediffnw
 - Dired history https://github.com/Anoncheg1/dired-hist
-
-# Screenshot
-![](https://raw.githubusercontent.com/Anoncheg1/public-share/refs/heads/main/cal.png)
+- Selected window contrast https://github.com/Anoncheg1/selected-window-contrast

@@ -40,6 +40,9 @@ Eng (./README.md) | Рус
 (russian-calendar-fix-list-holidays)
 ```
 
+# Screenshot
+![](https://raw.githubusercontent.com/Anoncheg1/public-share/refs/heads/main/cal.png)
+
 # Ссылки
 Russian holidays:
 - https://www.consultant.ru/law/ref/calendar/proizvodstvennye/2024/
@@ -83,11 +86,9 @@ Old Slavonic
 - https://experience.tripster.ru/articles/samye-izvestnye-slavyanskie-prazdniki/
 - https://en.wikipedia.org/wiki/Solstice
 
-# Другие мои пакеты
+# Другие пакеты автора
 - Navigation in Dired, Packages, Buffers modes https://github.com/Anoncheg1/firstly-search
 - Search with Chinese https://github.com/Anoncheg1/pinyin-isearch
 - Ediff fix https://github.com/Anoncheg1/ediffnw
 - Dired history https://github.com/Anoncheg1/dired-hist
-
-# Screenshot
-![](https://raw.githubusercontent.com/Anoncheg1/public-share/refs/heads/main/cal.png)
+- Selected window contrast https://github.com/Anoncheg1/selected-window-contrast
