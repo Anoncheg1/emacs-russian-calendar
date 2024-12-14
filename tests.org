@@ -1,0 +1,33 @@
+#+begin_src elisp :results output :exports both
+;; (my/display-holidays (calendar-holiday-list-slide calendar-holidays 2024 2025) "tttt" 2024 2025)
+
+;; - test my/display-holidays
+(progn
+  (setq displayed-month 2
+        displayed-year 2024)
+  ;; (setq l
+  ;;       (cdr (assoc "Старославянские праздники" (holiday-available-holiday-lists))))
+  ;; (print l)
+  ;; (setq ld (let ((calendar-holidays l))
+  ;;            (calendar-holiday-list))) ; extract dates from holidays
+  ;; (print ld)
+  ;; (dolist (p l)
+  ;;   (print (eval p t)))
+  (print (holiday-fixed 1 6 "Epiphany"))
+  ;; (print
+  ;;  (calendar-holiday-list
+  ;;   (cdr (assoc "Старославянские праздники" (holiday-available-holiday-lists)))))
+  ;; (print (calendar-holiday-list))
+  ;; (my/display-holidays (calendar-holiday-list) "sad" 2024 2024)
+  ;; (list-holidays 2024)
+  (makunbound 'displayed-month)
+  (makunbound 'displayed-year))
+
+;; (dolist (h
+;;          (russian-calendar-holiday-available-holiday-lists))
+;;   (print h))
+;; (dolist (h russian-calendar-2024-general-holidays)
+;;   (print h))
+;; (defun my/list-holidays (y1 y2 holidays label)
+
+#+end_src

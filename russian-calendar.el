@@ -65,7 +65,6 @@
 
 ;;; Code:
 
-;; - May be simple:
 (require 'calendar)
 (require 'holidays)
 (require 'cal-dst)
@@ -73,6 +72,8 @@
 (require 'russian-calendar-2024)
 (require 'russian-calendar-2025)
 
+
+;; ----------- Check Year ---------------------------
 
 (let ((cyear (number-to-string
               ; get current year
@@ -100,10 +101,10 @@
 (defvar russian-calendar-orthodox-christian-holidays
   (mapcar 'purecopy
   '(
-    (holiday-fixed 1 7 "Рождество Христово")
+    (holiday-fixed 1  7 "Рождество Христово")
     (holiday-fixed 1 19 "Крещение Господне (Богоявление)")
     (holiday-fixed 2 15 "Сретение Господне")
-    (holiday-fixed 4 7 "Благовещение Пресвятой Богородицы")
+    (holiday-fixed 4  7 "Благовещение Пресвятой Богородицы")
     (holiday-fixed 8 19 "Преображение Господне, Яблочный Спас")
     (holiday-fixed 8 28 "Успение Пресвятой Богородицы")
     (holiday-fixed 9 21 "Рождество Пресвятой Богородицы")
@@ -115,8 +116,8 @@
                    (append
                     '((-48 "Чистый понедельник Великого поста")
                       ( -7 "Вход Господень в Иерусалим, Вербное воскресенье, Страстная седмица")
-                      (0 "Пасха, Светлое Христово Воскресение")
-                      ( 9 "Радоница")
+                      (  0 "Пасха, Светлое Христово Воскресение")
+                      (  9 "Радоница")
                       ( 40 "Вознесение Господне")
                       ( 50 "День Святой Троицы, Пятидесятница"))
                     ;; (if calendar-christian-all-holidays-flag
@@ -131,13 +132,14 @@
     ))
   "Orthodox christian holidays.")
 
+
 (defvar russian-calendar-orthodox-christian-holidays-eng
   (mapcar 'purecopy
   '(
-    (holiday-fixed 1 7 "Christmas")
+    (holiday-fixed 1  7 "Christmas")
     (holiday-fixed 1 19 "Epiphany")
     (holiday-fixed 2 15 "Meeting of the Lord")
-    (holiday-fixed 4 7 "Annunciation")
+    (holiday-fixed 4  7 "Annunciation")
     (holiday-fixed 8 19 "Transfiguration")
     (holiday-fixed 8 28 "Dormition of the Theotokos")
     (holiday-fixed 9 21 "Nativity of the Theotokos")
@@ -149,7 +151,7 @@
                    (append
                     '((-48 "Clean Monday of Great Lent")
                       ( -7 "Palm Sunday, Holy Week")
-                      (0 "Easter Sunday, Resurrection of Jesus")
+                      (  0 "Easter Sunday, Resurrection of Jesus")
                       ( 40 "Ascension")
                       ( 50 "Trinity Sunday"))
                     ;; (if calendar-christian-all-holidays-flag
@@ -165,7 +167,7 @@
   "Orthodox christian holidays.")
 
 
-;; ---------------- Localizations --------------------
+;; ------------ Localizations And Configurations -----------------
 
 (defun russian-calendar-localize()
   "Translate month, days of week, etc to Russian language."
@@ -271,6 +273,11 @@ This is used by `list-holidays'.  For 29.3 require fix."
     (if (bound-and-true-p russian-calendar-russian-it-confs)
         (cons "Русские IT конференции" russian-calendar-russian-it-confs)) ; "Russian IT Confs"
     (cons "Ask" nil)))))
+
+;; -- test:
+;; (dolist (h
+;;          (russian-calendar-holiday-available-holiday-lists))
+;;   (print h))
 
 (defun russian-calendar-list-holidays (y1 &optional y2 l label)
 "Fixed version.
