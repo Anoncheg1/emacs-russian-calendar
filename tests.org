@@ -24,10 +24,11 @@
   (makunbound 'displayed-year))
 
 ;; (dolist (h
-;;          (russian-calendar-holiday-available-holiday-lists))
+;;          (russian-calendar-available-holidays))
 ;;   (print h))
 ;; (dolist (h russian-calendar-2024-general-holidays)
 ;;   (print h))
 ;; (defun my/list-holidays (y1 y2 holidays label)
+
 
 #+end_src
