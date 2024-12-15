@@ -38,9 +38,15 @@ Eng (./README.md) | Рус
 (russian-calendar-show-diary-holidays-in-calendar)
 (russian-calendar-enhance-calendar-movement)
 (russian-calendar-fix-list-holidays)
+(russian-calendar-check-year-not-obsolate)
 ```
 
-# Screenshot
+# Особенности
+- Поддержка произвольного количества лет однавременно
+- включен фикс для ```list-holidays``` функции
+
+
+# Снимок экрана
 ![](https://raw.githubusercontent.com/Anoncheg1/public-share/refs/heads/main/cal.png)
 
 # Ссылки
