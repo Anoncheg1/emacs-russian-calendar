@@ -39,6 +39,10 @@
 
 ;; Not included: regional holidays.
 
+;; Features:
+;; - Support arbitrary number of years at once
+;; - fix for behavior of `list-holidays' function included
+
 ;; Usage:
 ;; (require 'russian-calendar)
 ;; (setopt calendar-holidays (append russian-calendar-holidays

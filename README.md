@@ -42,6 +42,10 @@ Require updating during the year, some conferences may change.
 (russian-calendar-check-year-not-obsolate)
 ```
 
+# Features
+- Support arbitrary number of years at once
+- fix for behavior of ```list-holidays``` function included
+
 # Screenshot
 ![](https://raw.githubusercontent.com/Anoncheg1/public-share/refs/heads/main/cal.png)
 
