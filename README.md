@@ -39,11 +39,8 @@ Require updating during the year, some conferences may change.
 (russian-calendar-show-diary-holidays-in-calendar)
 (russian-calendar-enhance-calendar-movement)
 (russian-calendar-fix-list-holidays)
+(russian-calendar-check-year-not-obsolate)
 ```
-
-# Features
-- select current year at loading time
-- if year > 2025, then signat that we are obsolate
 
 # Screenshot
 ![](https://raw.githubusercontent.com/Anoncheg1/public-share/refs/heads/main/cal.png)

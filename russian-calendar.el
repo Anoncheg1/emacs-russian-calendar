@@ -58,10 +58,6 @@
 ;; (russian-calendar-fix-list-holidays)
 ;; (russian-calendar-check-year-not-obsolate)
 
-;; Features
-;; - select current year at loading time
-;; - if year > 2025, then signat that update required
-
 ;; Other packages:
 
 ;;; Code:
