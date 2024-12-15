@@ -42,7 +42,8 @@
 ;; Features:
 ;; - Support arbitrary number of years at once
 ;; - fix for behavior of `list-holidays' function included
-
+;; - this package is example of how to set holidays per year
+;
 ;; Usage:
 ;; (require 'russian-calendar)
 ;; (setopt calendar-holidays (append russian-calendar-holidays
