@@ -56,6 +56,7 @@
 ;; (russian-calendar-show-diary-holidays-in-calendar)
 ;; (russian-calendar-enhance-calendar-movement)
 ;; (russian-calendar-fix-list-holidays)
+;; (russian-calendar-check-year-not-obsolate)
 
 ;; Features
 ;; - select current year at loading time
@@ -72,27 +73,41 @@
 (require 'russian-calendar-2024)
 (require 'russian-calendar-2025)
 
-;; --- --- --- Check year and set holidays--- --- ---
+;; --- --- --- Concat years --- --- ---
 
-(let ((cyear (number-to-string
-              ; get current year
-              (nth 5 (decode-time (current-time))))))
-  ;; Do we obsolate?
-  (if (not (boundp (intern (concat "russian-calendar-" cyear "-holidays"))))
-      (error "Package russian-calendar is obsolate, please update"))
+(defun russian-calendar-concat (&rest args)
+  "Concat arbitrary ARGS holidays definitions.  Years mostly."
+  (seq-uniq
+   (seq-copy (apply 'append args))))
 
-  (defvaralias 'russian-calendar-holidays
-    (intern (concat "russian-calendar-" cyear "-holidays")))
-  (defvaralias 'russian-calendar-general-holidays
-    (intern (concat "russian-calendar-" cyear "-general-holidays")))
-  (defvaralias 'russian-calendar-open-source-confs
-    (intern (concat "russian-calendar-" cyear "-open-source-confs")))
-  (defvaralias 'russian-calendar-ai-confs
-    (intern (concat "russian-calendar-" cyear "-ai-confs")))
-   (defvaralias 'russian-calendar-russian-it-confs
-    (intern (concat "russian-calendar-" cyear "-russian-it-confs")))
-   (defvaralias 'russian-calendar-old-slavic-fests
-    (intern (concat "russian-calendar-" cyear "-old-slavic-fests"))))
+(defvar russian-calendar-holidays
+  (russian-calendar-concat russian-calendar-2024-holidays
+                           russian-calendar-2025-holidays))
+;; (defvar russian-calendar-general-holidays
+;;     (russian-calendar-concat russian-calendar-2024-general-holidays
+;;                              russian-calendar-2025-general-holidays))
+(defvar russian-calendar-open-source-confs
+    (russian-calendar-concat russian-calendar-2024-open-source-confs
+                             russian-calendar-2025-open-source-confs))
+(defvar russian-calendar-ai-confs
+    (russian-calendar-concat russian-calendar-2024-ai-confs
+                             russian-calendar-2025-ai-confs))
+(defvar russian-calendar-russian-it-confs
+    (russian-calendar-concat russian-calendar-2024-russian-it-confs
+                             russian-calendar-2025-russian-it-confs))
+(defvar russian-calendar-old-slavic-fests
+    (russian-calendar-concat russian-calendar-2024-old-slavic-fests
+                             russian-calendar-2025-old-slavic-fests))
+
+;; --- --- --- General international holidays
+
+(defvar russian-calendar-general-holidays
+  (mapcar 'purecopy
+          '(
+            (holiday-fixed 2 14 "Valentine's Day")
+            (holiday-fixed 4 1 "April Fools' Day")
+            (holiday-fixed 10 31 "Halloween")))
+  "International holidays.")
 
 ;; --- --- --- Key Orthodox Christian Feasts --- --- ---
 
@@ -279,7 +294,7 @@ With help of so called Fancy buffer of diary entires."
 ;; --- --- --- Fix list-holidays --- --- ---
 
 (defun russian-calendar-calendar-holiday-list (&optional holidays)
-  "Form the list of holidays that occur on dates in the calendar window.
+  "Form the list of HOLIDAYS that occur on dates in the calendar window.
 The holidays are those in the list `calendar-holidays'."
   (let ((holidays (or holidays calendar-holidays))
          res
@@ -302,15 +317,18 @@ The holidays are those in the list `calendar-holidays'."
      'calendar-date-compare)))
 
 (defun russian-calendar-calendar-display-holidays (holiday-list title y1 y2)
-  "Create or switch to holiday-buffer and write list of holidays.
-To test: (calendar-display-holidays (calendar-holiday-list-slide
- calendar-holidays 2024 2025) \"test\" 2024 2025)."
+  "Create or switch to `holiday-buffer' and write list of holidays.
+Argument HOLIDAY-LIST is formatted holidays, TITLE is a modeline
+for buffer, Y1 nad Y2 is a begining and end of year.  Return nothing.  To
+test: (calendar-display-holidays (calendar-holiday-list-slide
+calendar-holidays 2024 2025) \"test\" 2024 2025)."
   (save-current-buffer
       (calendar-in-read-only-buffer holiday-buffer
-        (calendar-set-mode-line
-         (if (= y1 y2)
-             (format "%s for %s" title y1)
-           (format "%s for %s-%s" title y1 y2)))
+        (with-selected-window (get-buffer-window holiday-buffer)
+          (calendar-set-mode-line
+           (if (= y1 y2)
+               (format "%s for %s" title y1)
+             (format "%s for %s-%s" title y1 y2))))
         (insert
          (mapconcat
           (lambda (x) (concat (calendar-date-string (car x))
@@ -318,22 +336,24 @@ To test: (calendar-display-holidays (calendar-holiday-list-slide
           holiday-list "\n")))))
 
 (defun russian-calendar-calendar-holiday-list-slide (holidays year-begin year-end)
-"Wrap for 'calendar-holiday-list-slide' that don't filter dates.
-Function 'calendar-holiday-list' calls holiday-fixed and other
+  "Wrap for `calendar-holiday-list' that don't filter dates.
+Function `calendar-holiday-list' calls `holiday-fixed' and other
 functions that use displayed-month and displayed-year and assume
-that calendar are opened to filter only visible dates. This
-function is kind of hack to get all dates without filter.
-This works by sliding displayed-month and displayed-year.
-Test: (mapc 'print (calendar-holiday-list-slide calendar-holidays
-2024 2025))"
+that calendar are opened to filter only visible dates.  This
+function is kind of hack to get all dates without filter.  This
+works by sliding displayed-month and displayed-year.
+Argument HOLIDAYS is `calendar-holidays', YEAR-BEGIN and YEAR-END is a
+range to filter dates.
+Test: (mapc
+print (calendar-holiday-list-slide calendar-holidays 2024 2025))"
 (let ((original-month (and (boundp 'displayed-month) displayed-month))
       (original-year (and (boundp 'displayed-year) displayed-year))
       (s (calendar-absolute-from-gregorian (list 2 1 year-begin)))
       (e (calendar-absolute-from-gregorian (list 11 1 year-end)))
       (calendar-holidays holidays)  ; rebind for (calendar-holiday-list)
       holiday-list)
-  (setq displayed-month 2)  ; rebing for (calendar-holiday-list)
-  (setq displayed-year year-begin)  ; rebind for (calendar-holiday-list)
+  (defvar displayed-month 2)  ; rebing for (calendar-holiday-list)
+  (defvar displayed-year year-begin)  ; rebind for (calendar-holiday-list)
                                     ;
   (while (<= s e) ; loop every 3 month
       (setq holiday-list (append holiday-list (russian-calendar-calendar-holiday-list)))
@@ -357,7 +377,7 @@ Test: (mapc 'print (calendar-holiday-list-slide calendar-holidays
 May be called within calendar and outside.  START-YEAR and
 END-YEAR required for proper working of calendar functions.
 END-YEAR defaults to START-YEAR.  The optional list of holidays
-hdays defaults to `calendar-holidays'.  If you want to control
+HDAYS defaults to `calendar-holidays'.  If you want to control
 what holidays are displayed, use a different list.  For example,
 
   (list-holidays 2006 2006
@@ -377,20 +397,19 @@ The optional LABEL is used to label the buffer created.
 The list of holiday lists is computed by the
 `holiday-available-holiday-lists' and you can alter the results
 by redefining that function, or use `add-function' to add
-values.
-"
+values."
   (interactive
    (let* ((in-calendar-p (and (boundp 'displayed-month)
                               (boundp 'displayed-year)))
           (start-year (if in-calendar-p
-                          displayed-year ; don't ask in calendar
+                          (bound-and-true-p displayed-year) ; don't ask in calendar
                         ;; else - outside of calendar
                         (calendar-read-sexp
                          "Starting year of holidays (>0)"
                          (lambda (x) (> x 0))
                          (calendar-extract-year (calendar-current-date)))))
           (end-year (if in-calendar-p
-                        displayed-year ; don't ask in calendar
+                        (bound-and-true-p displayed-year) ; don't ask in calendar
                       ;; else - outside of calendar
                       (calendar-read-sexp
                        "Ending year (inclusive) of holidays (>=%s)"
@@ -440,6 +459,16 @@ values.
   (advice-add 'list-holidays :override #'russian-calendar-list-holidays)
   (advice-add 'holiday-available-holiday-lists :override #'russian-calendar-available-holidays))
 
+;; --- --- --- Check year --- --- ---
+
+(defun russian-calendar-check-year-not-obsolate ()
+  "Check that `russian-calendar' package support this year."
+  (let ((cyear (number-to-string
+                ;; get current year
+                (nth 5 (decode-time (current-time))))))
+    ;; Do we obsolate?
+    (if (not (boundp (intern (concat "russian-calendar-" cyear "-holidays"))))
+        (error "Package russian-calendar is obsolate, please update"))))
 ;; --- --- --- footer --- --- ---
 (provide 'russian-calendar)
 ;;; russian-calendar.el ends here

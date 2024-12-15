@@ -1,5 +1,7 @@
 #+begin_src elisp :results output :exports both
 ;; (my/display-holidays (calendar-holiday-list-slide calendar-holidays 2024 2025) "tttt" 2024 2025)
+(russian-calendar-calendar-display-holidays (russian-calendar-calendar-holiday-list-slide
+ (cdr (assoc "Старославянские праздники" (holiday-available-holiday-lists))) 2024 2025) "test" 2024 2025)
 
 ;; - test my/display-holidays
 (progn
@@ -31,4 +33,30 @@
 ;; (defun my/list-holidays (y1 y2 holidays label)
 
 
+#+end_src
+
+
+
+
+#+begin_src elisp :results output :exports both
+(defun russian-calendar-concat (&rest args)
+
+  (seq-uniq
+   (seq-copy (apply 'append args))))
+
+
+(setq mylist1 '(
+          (holiday-fixed 1 1 "Вых. Новогодние каникулы")
+          (holiday-fixed 1 2 "Вых. Новогодние каникулы")
+          (holiday-fixed 1 3 "Вых. Новогодние каникулы")
+          ))
+
+(setq mylist2 '(
+          (holiday-fixed 1 1 "Вых. Новогодние каникулы")
+          (holiday-fixed 1 2 "Вых. Новогодние каникулы")
+          (holiday-fixed 1 9 "Вых. Новогодние каникулы")
+          (holiday-fixed 1 10 "Вых. Новогодние каникулы")
+          (holiday-fixed 1 11 "Вых. Новогодние каникулы")))
+
+(mapc 'print (russian-calendar-concat mylist1 mylist2))
 #+end_src
