@@ -74,6 +74,12 @@
 (require 'russian-calendar-2024)
 (require 'russian-calendar-2025)
 
+(defcustom russian-calendar-all-open-source-confs-flag nil
+  "If true enable all open source conferences.
+Otherwise only FOSDEM and EmacsConf enabled"
+  :group 'russian-calendar
+  :type 'boolean)
+
 ;; --- --- --- Concat years --- --- ---
 
 (defun russian-calendar-concat (&rest args)
@@ -83,22 +89,27 @@
 
 (defvar russian-calendar-holidays
   (russian-calendar-concat russian-calendar-2024-holidays
-                           russian-calendar-2025-holidays))
+                           russian-calendar-2025-holidays)
+  "Production calendar.")
 ;; (defvar russian-calendar-general-holidays
 ;;     (russian-calendar-concat russian-calendar-2024-general-holidays
 ;;                              russian-calendar-2025-general-holidays))
 (defvar russian-calendar-open-source-confs
     (russian-calendar-concat russian-calendar-2024-open-source-confs
-                             russian-calendar-2025-open-source-confs))
+                             russian-calendar-2025-open-source-confs)
+    "Conferences in field of open technologies.")
 (defvar russian-calendar-ai-confs
     (russian-calendar-concat russian-calendar-2024-ai-confs
-                             russian-calendar-2025-ai-confs))
+                             russian-calendar-2025-ai-confs)
+    "Conferences in field of AI technologies.")
 (defvar russian-calendar-russian-it-confs
     (russian-calendar-concat russian-calendar-2024-russian-it-confs
-                             russian-calendar-2025-russian-it-confs))
+                             russian-calendar-2025-russian-it-confs)
+    "Russia IT conferences.")
 (defvar russian-calendar-old-slavic-fests
     (russian-calendar-concat russian-calendar-2024-old-slavic-fests
-                             russian-calendar-2025-old-slavic-fests))
+                             russian-calendar-2025-old-slavic-fests)
+    "Old slavic holidays.")
 
 ;; --- --- --- General international holidays
 
@@ -110,7 +121,7 @@
             (holiday-fixed 10 31 "Halloween")))
   "International holidays.")
 
-;; --- --- --- Key Orthodox Christian Feasts --- --- ---
+;; --- --- --- Key Orthodox Christian Feasts
 
 (defvar russian-calendar-orthodox-christian-holidays
   (mapcar 'purecopy
@@ -181,7 +192,7 @@
   "Orthodox christian holidays.")
 
 
-;; --- --- --- Localizations And Configurations --- --- ---
+;; --- --- --- Localizations And Configurations
 
 (defun russian-calendar-localize()
   "Translate month, days of week, etc to Russian language."
@@ -246,7 +257,6 @@ This is used by `list-holidays'.  For 29.3 require fix."
 (defun russian-calendar-available-holidays-eng ()
   "Return a list of all holiday lists.
 This is used by `list-holidays'."
-  ;; (with-no-warnings
   (delq
    nil
    (list

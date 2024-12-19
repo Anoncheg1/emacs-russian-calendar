@@ -61,6 +61,9 @@ Emacs and Open source:
 - GNU https://www.gnu.org/ghm/upcoming.html
 - FOSDEM https://fosdem.org
 - https://russiaos.ru/#events
+- https://lwn.net/Calendar/Monthly/2025-02/
+- https://lwn.net/Calendar/Monthly/cfp/
+- https://creativefreedomsummit.com/
 
 AI
 - PyTorh https://pytorch.org/events
