@@ -75,7 +75,7 @@
 (require 'russian-calendar-2025)
 
 (defcustom russian-calendar-all-open-source-confs-flag nil
-  "If true enable all open source conferences.
+  "Non-nil means enable all open source conferences.
 Otherwise only FOSDEM and EmacsConf enabled"
   :group 'russian-calendar
   :type 'boolean)
@@ -85,7 +85,7 @@ Otherwise only FOSDEM and EmacsConf enabled"
 (defun russian-calendar-concat (&rest args)
   "Concat arbitrary ARGS holidays definitions.  Years mostly."
   (seq-uniq
-   (seq-copy (apply 'append args))))
+   (seq-copy (apply #'append args))))
 
 (defvar russian-calendar-holidays
   (russian-calendar-concat russian-calendar-2024-holidays
@@ -114,7 +114,7 @@ Otherwise only FOSDEM and EmacsConf enabled"
 ;; --- --- --- General international holidays
 
 (defvar russian-calendar-general-holidays
-  (mapcar 'purecopy
+  (mapcar #'purecopy
           '(
             (holiday-fixed 2 14 "Valentine's Day")
             (holiday-fixed 4 1 "April Fools' Day")
@@ -124,7 +124,7 @@ Otherwise only FOSDEM and EmacsConf enabled"
 ;; --- --- --- Key Orthodox Christian Feasts
 
 (defvar russian-calendar-orthodox-christian-holidays
-  (mapcar 'purecopy
+  (mapcar #'purecopy
   '(
     (holiday-fixed 1  7 "Рождество Христово")
     (holiday-fixed 1 19 "Крещение Господне (Богоявление)")
@@ -135,9 +135,9 @@ Otherwise only FOSDEM and EmacsConf enabled"
     (holiday-fixed 9 21 "Рождество Пресвятой Богородицы")
     (holiday-fixed 9 27 "Воздвижение Креста Господня")
     (holiday-fixed 12 4 "Введение во храм Пресвятой Богородицы")
-    (apply 'append
+    (apply #'append
            (mapcar (lambda (e)
-                     (apply 'holiday-greek-orthodox-easter e))
+                     (apply #'holiday-greek-orthodox-easter e))
                    (append
                     '((-48 "Чистый понедельник Великого поста")
                       ( -7 "Вход Господень в Иерусалим, Вербное воскресенье, Страстная седмица")
@@ -159,7 +159,7 @@ Otherwise only FOSDEM and EmacsConf enabled"
 
 
 (defvar russian-calendar-orthodox-christian-holidays-eng
-  (mapcar 'purecopy
+  (mapcar #'purecopy
   '(
     (holiday-fixed 1  7 "Christmas")
     (holiday-fixed 1 19 "Epiphany")
@@ -170,9 +170,9 @@ Otherwise only FOSDEM and EmacsConf enabled"
     (holiday-fixed 9 21 "Nativity of the Theotokos")
     (holiday-fixed 9 27 "Exaltation of the Cross")
     (holiday-fixed 12 4 "Presentation of the Theotokos")
-    (apply 'append
+    (apply #'append
            (mapcar (lambda (e)
-                     (apply 'holiday-greek-orthodox-easter e))
+                     (apply #'holiday-greek-orthodox-easter e))
                    (append
                     '((-48 "Clean Monday of Great Lent")
                       ( -7 "Palm Sunday, Holy Week")
@@ -233,7 +233,6 @@ Otherwise only FOSDEM and EmacsConf enabled"
 (defun russian-calendar-available-holidays ()
   "Return a list of all holiday lists.
 This is used by `list-holidays'.  For 29.3 require fix."
-  (with-no-warnings
   (delq
    nil
    (list
@@ -252,7 +251,7 @@ This is used by `list-holidays'.  For 29.3 require fix."
         (cons "AI конференции" russian-calendar-ai-confs)) ; "AI Confs"
     (if (bound-and-true-p russian-calendar-russian-it-confs)
         (cons "Русские IT конференции" russian-calendar-russian-it-confs)) ; "Russian IT Confs"
-    (cons "Ask" nil)))))
+    (cons "Ask" nil))))
 
 (defun russian-calendar-available-holidays-eng ()
   "Return a list of all holiday lists.
@@ -363,9 +362,10 @@ print (calendar-holiday-list-slide calendar-holidays 2024 2025))"
       (e (calendar-absolute-from-gregorian (list 11 1 year-end)))
       (calendar-holidays holidays)  ; rebind for (calendar-holiday-list)
       holiday-list)
-  (defvar displayed-month 2)  ; rebing for (calendar-holiday-list)
-  (defvar displayed-year year-begin)  ; rebind for (calendar-holiday-list)
-                                    ;
+  ;; (defvar displayed-month 2)  ; rebing for (calendar-holiday-list)
+  (setq displayed-month 2)
+  ;; (defvar displayed-year year-begin)  ; rebind for (calendar-holiday-list)
+  (setq displayed-month year-begin)
   (while (<= s e) ; loop every 3 month
       (setq holiday-list (append holiday-list (russian-calendar-calendar-holiday-list)))
       (calendar-increment-month displayed-month displayed-year 3)
