@@ -94,9 +94,6 @@ Otherwise only FOSDEM and EmacsConf enabled"
   (russian-calendar-concat russian-calendar-2024-holidays
                            russian-calendar-2025-holidays)
   "Production calendar.")
-;; (defvar russian-calendar-general-holidays
-;;     (russian-calendar-concat russian-calendar-2024-general-holidays
-;;                              russian-calendar-2025-general-holidays))
 (defvar russian-calendar-open-source-confs
     (russian-calendar-concat russian-calendar-2024-open-source-confs
                              russian-calendar-2025-open-source-confs)
@@ -368,10 +365,8 @@ print (calendar-holiday-list-slide calendar-holidays 2024 2025))"
       (e (calendar-absolute-from-gregorian (list 11 1 year-end)))
       (calendar-holidays holidays)  ; rebind for (calendar-holiday-list)
       holiday-list)
-  ;; (defvar displayed-month 2)  ; rebing for (calendar-holiday-list)
-  (setq displayed-month 2)
-  ;; (defvar displayed-year year-begin)  ; rebind for (calendar-holiday-list)
-  (setq displayed-month year-begin)
+  (setq displayed-month 2) ; rebing for (calendar-holiday-list)
+  (setq displayed-year year-begin) ; rebind for (calendar-holiday-list)
   (while (<= s e) ; loop every 3 month
       (setq holiday-list (append holiday-list (russian-calendar-calendar-holiday-list)))
       (calendar-increment-month displayed-month displayed-year 3)
