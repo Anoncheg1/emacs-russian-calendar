@@ -12,10 +12,11 @@ jobs:
     steps:
       - name: Get repo to access in conteiner
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          fetch-depth: 0
           python-version: 3.12
       - name: Install
         run: |
