@@ -89,21 +89,5 @@ Arguments MONTH, DAY, STRING is standard arguments for
             (russian-calendar-2024-h 11 28 "TAdviser SummIT https://tadvisersummit.ru/")))
   "Russian IT and AI Conferences.")
 
-(defvar russian-calendar-2024-old-slavic-fests
-  (mapcar #'purecopy
-          '(
-            (russian-calendar-2024-h 12 21 "Карачун (смерть)")  ;; с 22 на 23 декабря 2024:21 2025:21 2026:21 2027:22 2028:21 2029:21
-            (holiday-fixed 1 6 "Коляда по 19 января")
-            (russian-calendar-2024-h 3 20 "Весеннее равноденствие") ;; 2024-2029:20
-            (holiday-greek-orthodox-easter -55 "Масленица (неделя)") ;; в течение недели перед Великим постом
-            (holiday-greek-orthodox-easter 7 "Красная горка или Лельник, поминовение усопших")
-            (russian-calendar-2024-h 6 20 "Летнее солнцестояние") ;; 20 июня 2024:20 2025-2027:21 2028:20 2029:21
-            (holiday-fixed 7 6 "Ночь Ивана Купалы") ;; с 6 на 7 июля
-            (holiday-fixed 8 2 "Перунов день") ;; 2 августа
-            (russian-calendar-2024-h 9 22 "Осеннее равноденствие") ;; 2024:22 2025:22 2026:23 2027:23 2028:22 2029:22
-            (holiday-fixed 10 31 "Велесова ночь") ;; с 31 октября на 1 ноября
-            ))
-  "Old slavic folk holidays.")
-
 (provide 'russian-calendar-2024)
 ;;; russian-calendar-2024.el ends here

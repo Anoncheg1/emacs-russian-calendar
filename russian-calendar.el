@@ -106,12 +106,7 @@ Otherwise only FOSDEM and EmacsConf enabled"
     (russian-calendar-concat russian-calendar-2024-russian-it-confs
                              russian-calendar-2025-russian-it-confs)
     "Russia IT conferences.")
-(defvar russian-calendar-old-slavic-fests
-    (russian-calendar-concat russian-calendar-2024-old-slavic-fests
-                             russian-calendar-2025-old-slavic-fests)
-    "Old slavic holidays.")
-
-;; --- --- --- General international holidays
+;; --- --- --- General International Holidays
 
 (defvar russian-calendar-general-holidays
   (mapcar #'purecopy
@@ -192,6 +187,30 @@ Otherwise only FOSDEM and EmacsConf enabled"
   "Orthodox christian holidays.")
 
 
+;; --- --- --- Old Slavic Folk Holidays
+(defun russian-calendar-eqsols (qr string)
+  "Date of equinox/solstice QR for displayed-year of calendar.
+The return value has the form ((MONTH DAY YEAR) STRING)."
+  (let* ((date (solar-equinoxes/solstices qr displayed-year))
+         (month (nth 0 date))
+         (day (truncate (nth 1 date))))
+    (holiday-fixed month day string)))
+
+(defvar russian-calendar-old-slavic-fests
+  (mapcar #'purecopy
+          '(
+            (russian-calendar-eqsols 0 "Весеннее равноденствие") ;; 2024-2029:20
+            (russian-calendar-eqsols 1 "Летнее солнцестояние") ;; 20 июня 2024:20 2025-2027:21 2028:20 2029:21
+            (russian-calendar-eqsols 2 "Осеннее равноденствие") ;; 2024:22 2025:22 2026:23 2027:23 2028:22 2029:22
+            (russian-calendar-eqsols 3 "Карачун (смерть)")  ;; с 22 на 23 декабря 2024:21 2025:21 2026:21 2027:22 2028:21 2029:21
+            (holiday-fixed 1 6 "Коляда по 19 января")
+            (holiday-greek-orthodox-easter -55 "Масленица (неделя)") ;; в течение недели перед Великим постом
+            (holiday-greek-orthodox-easter 7 "Красная горка или Лельник, поминовение усопших")
+            (holiday-fixed 7 6 "Ночь Ивана Купалы") ;; с 6 на 7 июля
+            (holiday-fixed 8 2 "Перунов день") ;; 2 августа
+            (holiday-fixed 10 31 "Велесова ночь") ;; с 31 октября на 1 ноября
+            ))
+  "Old slavic folk holidays.")
 ;; --- --- --- Localizations And Configurations
 
 (defun russian-calendar-localize()
