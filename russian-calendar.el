@@ -83,6 +83,11 @@ Otherwise only FOSDEM and EmacsConf enabled"
   :group 'russian-calendar
   :type 'boolean)
 
+;; - required by `russian-calendar-eqsols' and
+;; - `russian-calendar-calendar-holiday-list-slide'
+(defvar displayed-month)
+(defvar displayed-year)
+
 ;; --- --- --- Concat years --- --- ---
 
 (defun russian-calendar-concat (&rest args)
@@ -364,9 +369,6 @@ calendar-holidays 2024 2025) \"test\" 2024 2025)."
                               ": " (cadr x)))
           holiday-list "\n")))))
 
-(defvar displayed-month)
-(defvar displayed-year)
-
 (defun russian-calendar-calendar-holiday-list-slide (holidays year-begin year-end)
   "Wrap for `calendar-holiday-list' that don't filter dates.
 Function `calendar-holiday-list' calls `holiday-fixed' and other
@@ -382,10 +384,10 @@ print (calendar-holiday-list-slide calendar-holidays 2024 2025))"
       (original-year (and (boundp 'displayed-year) displayed-year))
       (s (calendar-absolute-from-gregorian (list 2 1 year-begin)))
       (e (calendar-absolute-from-gregorian (list 11 1 year-end)))
-      (calendar-holidays holidays)  ; rebind for (calendar-holiday-list)
+      (calendar-holidays holidays)  ; rebind for `calendar-holiday-list'
       holiday-list)
-  (setq displayed-month 2) ; rebing for (calendar-holiday-list)
-  (setq displayed-year year-begin) ; rebind for (calendar-holiday-list)
+  (setq displayed-month 2) ; rebing for `calendar-holiday-list'
+  (setq displayed-year year-begin) ; rebind for `calendar-holiday-list'
   (while (<= s e) ; loop every 3 month
       (setq holiday-list (append holiday-list (russian-calendar-calendar-holiday-list)))
       (calendar-increment-month displayed-month displayed-year 3)
