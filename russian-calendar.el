@@ -5,7 +5,7 @@
 ;; Author: github.com/Anoncheg1,codeberg.org/Anoncheg
 ;; Keywords: calendar, holidays
 ;; URL: https://github.com/Anoncheg1/emacs-russian-calendar
-;; Version: 0.0.9
+;; Version: 0.1.0
 ;; Package-Requires: ((emacs "29.4"))
 
 ;; This program is free software: you can redistribute it and/or modify
