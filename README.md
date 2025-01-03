@@ -1,3 +1,7 @@
+![build](https://github.com/Anoncheg1/emacs-russian-calendar/workflows/melpazoid/badge.svg)
+[![MELPA](https://melpa.org/packages/russian-calendar-badge.svg)](http://melpa.org/#/russian-calendar)
+[![MELPA Stable](https://stable.melpa.org/packages/russian-calendar-badge.svg)](https://stable.melpa.org/#/russian-calendar)
+
 Eng | [Рус](./README.ru.md)
 
 # emacs-russian-calendar
@@ -15,8 +19,8 @@ What?
 Why? Going to be maintained.
 
 Not included: regional holidays.
-# 2024 (updated 22/11/24)
-# 2025 (updated 22/11/24)
+
+# 2024, 2025 (updated 03/01/25)
 Require updating during the year, some conferences may change.
 
 # Usage
