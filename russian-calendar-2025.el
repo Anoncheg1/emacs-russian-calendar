@@ -48,8 +48,9 @@ Arguments MONTH, DAY, STRING is standard arguments for
           (holiday-fixed 1 3 "Вых. Новогодние каникулы")
           (holiday-fixed 1 4 "Вых. Новогодние каникулы")
           (holiday-fixed 1 5 "Вых. Новогодние каникулы")
-          (holiday-fixed 1 8 "Вых. Новогодние каникулы")
+          (holiday-fixed 1 6 "Вых. Новогодние каникулы")
           (holiday-fixed 1 7 "Вых. Рождество Христово")
+          (holiday-fixed 1 8 "Вых. Новогодние каникулы")
           (holiday-fixed 2 23 "Вых. День защитника Отечества")
           (russian-calendar-2025-h 3 7 "* Сокращённый день перед Международный женский день")
           (holiday-fixed 3 8 "Вых. Международный женский день")
@@ -104,9 +105,10 @@ Arguments MONTH, DAY, STRING is standard arguments for
 (defvar russian-calendar-2025-ai-confs
   (mapcar #'purecopy
           '(
-            (russian-calendar-2025-h 10 22 "PyTorch")
-            (russian-calendar-2025-h 5 5 "IEEE CAI https://ieeecai.org/")
             (russian-calendar-2025-h 2 13 "WAIC https://www.worldaicannes.com")
+            (russian-calendar-2025-h 5 5 "IEEE CAI https://ieeecai.org/")
+            (russian-calendar-2025-h 7 14 "ACML - Tutorials https://icml.cc/")
+            (russian-calendar-2025-h 10 22 "PyTorch")
             (russian-calendar-2025-h 12 10 "NeurIPS https://neurips.cc/ (will change)")))
   "AI conferences.")
 

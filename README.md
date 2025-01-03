@@ -65,11 +65,13 @@ Emacs and Open source:
 - https://lwn.net/Calendar/Monthly/cfp/
 - https://creativefreedomsummit.com/
 
-AI
+AI - ICML, NeurIPS, ICLR, CVPR, ACL, KDD, ICCV, ECCV, EMNLP
 - PyTorh https://pytorch.org/events
 - NeurIPS https://neurips.cc/
 - IEEE CAI https://ieeecai.org/
 - WAIC https://www.worldaicannes.com
+- ACL Association for Computational Linguistics https://www.aclweb.org/portal/acl_sponsored_events
+- The International Conference on Machine Learning (ICML) https://icml.cc/Conferences/2025/Dates
 
 Russian IT
 - AI Journey https://aij.ru/
