@@ -118,8 +118,7 @@ Arguments MONTH, DAY, STRING is standard arguments for
           '(
             (russian-calendar-2026-h 12 11 "AI Journey https://aij.ru/ (will change)")
             (russian-calendar-2026-h 11 28 "TAdviser SummIT https://tadvisersummit.ru/ (will change)")
-            (russian-calendar-2026-h 11 11 "CNews Forum 2026: Information technology tomorrow https://cnewsforum.ru/forum/ (will change)")
-            ))
+            (russian-calendar-2026-h 11 11 "CNews Forum 2026: Information technology tomorrow https://cnewsforum.ru/forum/ (will change)")))
   "Russian IT and AI Conferences.")
 
 (provide 'russian-calendar-2026)
