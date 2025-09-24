@@ -1,4 +1,4 @@
-;;; russian-calendar.el --- Russian holidays and conferences. Updated 2025-01-03  -*- lexical-binding: t -*-
+;;; russian-calendar.el --- Russian holidays and conferences. Updated 2025-09-24  -*- lexical-binding: t -*-
 
 ;; Copyright (c) 2025 github.com/Anoncheg1,codeberg.org/Anoncheg
 ;; SPDX-License-Identifier: GPL-3.0-or-later
@@ -26,7 +26,7 @@
 
 ;;; Commentary:
 ;;
-;; 2025  (updated 03/01/25)
+;; 2025  (updated 24/09/25)
 ;;
 ;; What:
 ;; - Russian holidays
