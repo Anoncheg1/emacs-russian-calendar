@@ -4,7 +4,7 @@
 # to .github/workflows/melpazoid.yml and modifying RECIPE and EXIST_OK below.
 
 name: melpazoid
-on: [push, pull_request]
+'on': [push, pull_request]
 
 jobs:
   build:
@@ -30,7 +30,7 @@ jobs:
           # RECIPE is your recipe as written for MELPA:
           RECIPE: (russian-calendar :fetcher github :repo "Anoncheg1/emacs-russian-calendar")
           # set this to false (or remove it) if the package isn't on MELPA:
-          # EXIST_OK: false
+          EXIST_OK: true
         run: |
           echo $GITHUB_REF
           if make -C ~/melpazoid |& tee output.log; then
