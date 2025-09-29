@@ -112,3 +112,9 @@ Regional holidays
 - Ediff fix https://github.com/Anoncheg1/ediffnw
 - Dired history https://github.com/Anoncheg1/dired-hist
 - Selected window contrast https://github.com/Anoncheg1/selected-window-contrast
+
+## Donate, sponsor author
+You can sponsor author crypto money directly with crypto currencies:
+- BTC (Bitcoin) address: 1CcDWSQ2vgqv5LxZuWaHGW52B9fkT5io25
+- USDT (Tether) address: TVoXfYMkVYLnQZV3mGZ6GvmumuBfGsZzsN
+- TON (Telegram) address: UQC8rjJFCHQkfdp7KmCkTZCb5dGzLFYe2TzsiZpfsnyTFt9D

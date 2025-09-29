@@ -66,7 +66,11 @@
 ;; (russian-calendar-fix-list-holidays)
 ;; (russian-calendar-check-year-not-obsolate)
 
-;; Other packages:
+;; *DONATE MONEY, SPONSOR AUTHOR*:
+;; You can sponsor author directly with crypto currencies:
+;; - BTC (Bitcoin) address: 1CcDWSQ2vgqv5LxZuWaHGW52B9fkT5io25
+;; - USDT (Tether) address: TVoXfYMkVYLnQZV3mGZ6GvmumuBfGsZzsN
+;; - TON (Telegram) address: UQC8rjJFCHQkfdp7KmCkTZCb5dGzLFYe2TzsiZpfsnyTFt9D
 
 ;;; Code:
 
