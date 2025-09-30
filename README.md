@@ -20,7 +20,7 @@ Why? Going to be maintained.
 
 Not included: regional holidays.
 
-# 2024, 2025 (updated 03/01/25)
+# 2025, 2026 (updated 30/09/25)
 Require updating during the year, some conferences may change.
 
 # Usage
