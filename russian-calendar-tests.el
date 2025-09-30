@@ -31,17 +31,17 @@
 (require 'ert)
 (require 'russian-calendar)
 
-;; (defvar russian-calendar-2024-holidays
+;; (defvar russian-calendar-2026-holidays
 ;;   (mapcar 'purecopy
 ;;           '(
 ;;             ;; was:
-;;             ;; (((12 28 2024) "Рабочий день"))
+;;             ;; (((12 28 2026) "Рабочий день"))
 ;;             ;; become:
-;;             ;; '((12 28 2024) "Рабочий день")
-;;             ;; '(list '(1 0 2024) "Р")
-;;             '(((12 28 2024) "Рабочий день2"))
-;;             '(((2 30 2024) "Рабочий день2"))
-;;             '(((12 30 2024) "Вых. Выходной"))
+;;             ;; '((12 28 2026) "Рабочий день")
+;;             ;; '(list '(1 0 2026) "Р")
+;;             '(((12 28 2026) "Рабочий день2"))
+;;             '(((2 30 2026) "Рабочий день2"))
+;;             '(((12 30 2026) "Вых. Выходной"))
 ;;             (holiday-fixed 1 31 "Вых. перед Новый год")
 ;;             (holiday-fixed 1 1 "Вых. перед Н")
 ;;             )
@@ -49,16 +49,16 @@
 ;;   "Russian calendar holidays.")
 
 (russian-calendar-calendar-holiday-list-slide
-                                                 russian-calendar-2024-holidays
+                                                 russian-calendar-2026-holidays
                                                  ;; holiday-christian-holidays
-                                                 2024
-                                                 2024
+                                                 2026
+                                                 2026
                                                  )
 
 (ert-deftest russian-calendar--test1 ()
   (with-temp-buffer
     (setq displayed-month 1
-          displayed-year 2024)
+          displayed-year 2026)
     ;; ;; ------- 1
     ;; (let ((holidays '((holiday-fixed 1 6 "Epiphany")
     ;;                   (holiday-fixed 2 9 "Радоница")
@@ -69,25 +69,25 @@
     ;;                                   '((-48 "Чистый понедельник Великого поста")
     ;;                                     ( 50 "День Святой Троицы, Пятидесятница"))
     ;;                 )))
-    ;;                   '(((1 6 2024) "Epiphany2"))
+    ;;                   '(((1 6 2026) "Epiphany2"))
     ;;                   ;; ( 1 6 "Epiphany")
     ;;                   )))
     ;;   (dolist (p holidays)
     ;;     (print (eval p t))))
     ;; ;; -------- 2
-    ;; (should (equal (eval '(list '(1 6 2024) "Epiphany") t)
-    ;;               '((1 6 2024) "Epiphany")))
+    ;; (should (equal (eval '(list '(1 6 2026) "Epiphany") t)
+    ;;               '((1 6 2026) "Epiphany")))
     ;; ;; ------- 3
     ;; (russian-calendar-calendar-display-holidays (russian-calendar-calendar-holiday-list-slide
-    ;;                                              russian-calendar-2024-holidays
+    ;;                                              russian-calendar-2026-holidays
     ;;                                              ;; holiday-christian-holidays
-    ;;                                              2024
-    ;;                                              2024
-    ;;                                              ) "test" 2024 2022)
+    ;;                                              2026
+    ;;                                              2026
+    ;;                                              ) "test" 2026 2022)
     ;; ;; ------ 4
     ;; (let (res
     ;;       h)
-    ;;   (dolist (p russian-calendar-2024-holidays res)
+    ;;   (dolist (p russian-calendar-2026-holidays res)
     ;;     (setq h (eval p t))
     ;;     (setq res (append h res))
     ;;     ;; (print res)
@@ -107,21 +107,21 @@
     ;;   (print res))
     ;; (print (holiday-fixed 1 6 "Epiphany"))
     ;; Problem:
-    ;; (eval '(((12 28 2024) "Рабочий день")))
-    ;; (invalid-function ((12 28 2024) "Рабочий день"))
-    ;; Solution: (eval '(list '(12 28 2024) "Рабочий день"))
+    ;; (eval '(((12 28 2026) "Рабочий день")))
+    ;; (invalid-function ((12 28 2026) "Рабочий день"))
+    ;; Solution: (eval '(list '(12 28 2026) "Рабочий день"))
     ;; ----------- 5
     (mapc 'print (russian-calendar-calendar-holiday-list-slide
-            russian-calendar-2024-holidays
+            russian-calendar-2026-holidays
             ;; holiday-christian-holidays
-            2024
-            2024
+            2026
+            2026
      ))
     (print (russian-calendar-calendar-holiday-list-slide
-            russian-calendar-2024-holidays
+            russian-calendar-2026-holidays
             ;; holiday-christian-holidays
-            2024
-            2024
+            2026
+            2026
      ))
 
     (makunbound 'displayed-month)
@@ -129,21 +129,21 @@
     ))
 
 
-;; (eval ((list '(1 6 2024) "Epiphany")) t)
+;; (eval ((list '(1 6 2026) "Epiphany")) t)
 
 
 ;; --------- 6
 (ert-deftest russian-calendar--calendar-holiday-list ()
   (with-temp-buffer
     (setq displayed-month 2
-          displayed-year 2024)
+          displayed-year 2026)
     (let (
-          (russian-calendar-2024-holidays
+          (russian-calendar-2026-holidays
       (mapcar 'purecopy
               '(
-                '(((12 28 2024) "Рабочий день2"))
-                '(((2 30 2024) "Рабочий день2"))
-                '(((12 30 2024) "Вых. Выходной"))
+                '(((12 28 2026) "Рабочий день2"))
+                '(((2 30 2026) "Рабочий день2"))
+                '(((12 30 2026) "Вых. Выходной"))
                 (holiday-fixed 1 31 "Вых. перед Новый год")
                 (holiday-fixed 1 1 "Вых. перед Н")
                 )
@@ -152,11 +152,11 @@
           )
 
       (should (equal (russian-calendar-calendar-holiday-list-slide
-                      russian-calendar-2024-holidays
+                      russian-calendar-2026-holidays
                       ;; holiday-christian-holidays
-                      2024
-                      2024)
-                     '(((1 1 2024) "Вых. перед Н") ((1 31 2024) "Вых. перед Новый год") ((2 30 2024) "Рабочий день2") ((12 28 2024) "Рабочий день2") ((12 30 2024) "Вых. Выходной") ((2 30 2024) "Рабочий день2") ((12 28 2024) "Рабочий день2") ((12 30 2024) "Вых. Выходной") ((2 30 2024) "Рабочий день2") ((12 28 2024) "Рабочий день2") ((12 30 2024) "Вых. Выходной") ((2 30 2024) "Рабочий день2") ((12 28 2024) "Рабочий день2") ((12 30 2024) "Вых. Выходной"))
+                      2026
+                      2026)
+                     '(((1 1 2026) "Вых. перед Н") ((1 31 2026) "Вых. перед Новый год") ((2 30 2026) "Рабочий день2") ((12 28 2026) "Рабочий день2") ((12 30 2026) "Вых. Выходной") ((2 30 2026) "Рабочий день2") ((12 28 2026) "Рабочий день2") ((12 30 2026) "Вых. Выходной") ((2 30 2026) "Рабочий день2") ((12 28 2026) "Рабочий день2") ((12 30 2026) "Вых. Выходной") ((2 30 2026) "Рабочий день2") ((12 28 2026) "Рабочий день2") ((12 30 2026) "Вых. Выходной"))
                      ))
       )
     (makunbound 'displayed-month)
@@ -164,23 +164,23 @@
     ))
 ;; --------- 7 concat
 
-;; (mapc 'print (russian-calendar-concat russian-calendar-2024-open-source-confs
+;; (mapc 'print (russian-calendar-concat russian-calendar-2026-open-source-confs
 ;;                                       russian-calendar-2025-open-source-confs))
-;; (mapc 'print russian-calendar-2024-open-source-confs)
+;; (mapc 'print russian-calendar-2026-open-source-confs)
 
 
 (ert-deftest russian-calendar--calendar-holiday-list ()
   (with-temp-buffer
     (setq displayed-month 2
-          displayed-year 2024)
+          displayed-year 2026)
       (should (equal (russian-calendar-calendar-holiday-list-slide
-                      russian-calendar-2024-open-source-confs
-                      2024
-                      2024)
+                      russian-calendar-2026-open-source-confs
+                      2026
+                      2026)
                      (russian-calendar-calendar-holiday-list-slide
                       russian-calendar-open-source-confs
-                      2024
-                      2024)))
+                      2026
+                      2026)))
 
     (makunbound 'displayed-month)
     (makunbound 'displayed-year)
