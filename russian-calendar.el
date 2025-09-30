@@ -1,4 +1,4 @@
-;;; russian-calendar.el --- Russian holidays and conferences. Updated 2025-09-24  -*- lexical-binding: t -*-
+;;; russian-calendar.el --- Russian holidays and conferences. Updated 2025-09-30  -*- lexical-binding: t -*-
 
 ;; Copyright (c) 2025 github.com/Anoncheg1,codeberg.org/Anoncheg
 ;; SPDX-License-Identifier: GPL-3.0-or-later
@@ -78,8 +78,8 @@
 (require 'holidays)
 (require 'cal-dst)
 (require 'solar)
-(require 'russian-calendar-2024)
 (require 'russian-calendar-2025)
+(require 'russian-calendar-2026)
 
 (defcustom russian-calendar-all-open-source-confs-flag nil
   "Non-nil means enable all open source conferences.
@@ -100,20 +100,20 @@ Otherwise only FOSDEM and EmacsConf enabled"
    (seq-copy (apply #'append args))))
 
 (defvar russian-calendar-holidays
-  (russian-calendar-concat russian-calendar-2024-holidays
-                           russian-calendar-2025-holidays)
+  (russian-calendar-concat russian-calendar-2025-holidays
+                           russian-calendar-2026-holidays)
   "Production calendar.")
 (defvar russian-calendar-open-source-confs
-    (russian-calendar-concat russian-calendar-2024-open-source-confs
-                             russian-calendar-2025-open-source-confs)
+    (russian-calendar-concat russian-calendar-2025-open-source-confs
+                             russian-calendar-2026-open-source-confs)
     "Conferences in field of open technologies.")
 (defvar russian-calendar-ai-confs
-    (russian-calendar-concat russian-calendar-2024-ai-confs
-                             russian-calendar-2025-ai-confs)
+    (russian-calendar-concat russian-calendar-2025-ai-confs
+                             russian-calendar-2026-ai-confs)
     "Conferences in field of AI technologies.")
 (defvar russian-calendar-russian-it-confs
-    (russian-calendar-concat russian-calendar-2024-russian-it-confs
-                             russian-calendar-2025-russian-it-confs)
+    (russian-calendar-concat russian-calendar-2025-russian-it-confs
+                             russian-calendar-2026-russian-it-confs)
     "Russia IT conferences.")
 ;; --- --- --- General International Holidays
 
