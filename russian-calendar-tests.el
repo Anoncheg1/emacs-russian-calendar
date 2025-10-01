@@ -21,7 +21,8 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ;;; Commentary:
 ;; to run: emacs -batch -l ert -l pinyin-isearch.el -l pinyin-isearch-pinyin-tests.el -f ert-run-tests-batch-and-exit 2> out.log
-;; eval-buffer
+;; (eval-buffer)
+;; (ert)
 ;; M-x ert RET t RET
 
 ;; Raw state
@@ -133,7 +134,7 @@
 
 
 ;; --------- 6
-(ert-deftest russian-calendar--calendar-holiday-list ()
+(ert-deftest russian-calendar--calendar-holiday-list1 ()
   (with-temp-buffer
     (setq displayed-month 2
           displayed-year 2026)
@@ -169,7 +170,7 @@
 ;; (mapc 'print russian-calendar-2026-open-source-confs)
 
 
-(ert-deftest russian-calendar--calendar-holiday-list ()
+(ert-deftest russian-calendar--calendar-holiday-list2 ()
   (with-temp-buffer
     (setq displayed-month 2
           displayed-year 2026)
