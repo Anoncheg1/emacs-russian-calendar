@@ -116,7 +116,7 @@ Arguments MONTH, DAY, STRING is standard arguments for
   (mapcar #'purecopy
           '(
             (russian-calendar-2025-h 12 11 "AI Journey https://aij.ru/ (will change)")
-            (russian-calendar-2025-h 11 28 "TAdviser SummIT https://tadvisersummit.ru/ (will change)")
+            (russian-calendar-2025-h 11 27 "TAdviser SummIT https://tadvisersummit.ru/")
             (russian-calendar-2025-h 11 11 "CNews Forum 2025: Information technology tomorrow https://cnewsforum.ru/forum/register#registration")
             ))
   "Russian IT and AI Conferences.")
