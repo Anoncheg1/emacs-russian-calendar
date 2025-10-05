@@ -29,7 +29,7 @@ Require updating during the year, some conferences may change.
 (require 'russian-calendar)
 
 (setopt calendar-holidays (append russian-calendar-holidays
-                                  ;; - enable if you need:
+                                  ;; - uncomment if you need:
                                   ;; russian-calendar-general-holidays
                                   ;; russian-calendar-orthodox-christian-holidays
                                   ;; russian-calendar-old-slavic-fests
