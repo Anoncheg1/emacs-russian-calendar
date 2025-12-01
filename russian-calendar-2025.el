@@ -115,7 +115,7 @@ Arguments MONTH, DAY, STRING is standard arguments for
 (defvar russian-calendar-2025-russian-it-confs
   (mapcar #'purecopy
           '(
-            (russian-calendar-2025-h 12 19 "AI Journey https://aij.ru/")
+            (russian-calendar-2025-h 11 19 "AI Journey https://aij.ru/")
             (russian-calendar-2025-h 11 27 "TAdviser SummIT https://tadvisersummit.ru/")
             (russian-calendar-2025-h 11 11 "CNews Forum 2025: Information technology tomorrow https://cnewsforum.ru/forum/register#registration")
             ))
