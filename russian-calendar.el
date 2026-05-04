@@ -75,6 +75,8 @@
 ;; - Org hyperlinks enhanced			https://github.com/Anoncheg1/org-links
 ;; - Solution for "callback hell"		https://github.com/Anoncheg1/emacs-async1
 ;; - Call LLMs and AI agents from Org-mode ai block. https://github.com/Anoncheg1/emacs-oai
+;; - outline.el usage		https://github.com/Anoncheg1/emacs-outline-it
+;; - hiding password in caffe	https://github.com/Anoncheg1/emacs-hidepass
 
 ;; *DONATE MONEY*:
 ;; You can sponsor author directly with crypto currencies:
@@ -84,6 +86,8 @@
 
 
 ;;; Code:
+
+;; Touch: had nothing, have nothing, will have nothing
 
 (require 'calendar)
 (require 'holidays)
