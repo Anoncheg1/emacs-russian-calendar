@@ -5,7 +5,9 @@
 Eng | [Рус](./README.ru.md)
 
 # emacs-russian-calendar
-**Maintained!** # For 2026 (last update: 2026-05-04 Mon)
+Emacs packa
+
+**Maintained!** For **2026** (last update: 2026-05-04 Mon)
 
 # Feature:
 - Russian Production Calendar
@@ -19,6 +21,7 @@ Eng | [Рус](./README.ru.md)
 Not included: regional holidays.
 
 # Configuration
+For `~/.emacs` file:
 
 ```lisp
 (require 'russian-calendar)
@@ -40,8 +43,6 @@ Not included: regional holidays.
 (russian-calendar-fix-list-holidays)
 (russian-calendar-check-year-not-obsolate)
 ```
-# Usage
-M-x calendar
 
 # Features
 - Support arbitrary number of years at once
