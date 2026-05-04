@@ -317,11 +317,13 @@ This is used by `list-holidays'."
 
 ;; --- --- --- Enhance-calendar-movement --- --- ---
 
-(defun russian-calendar-show-holiday-advice (&rest r)
+(defun russian-calendar-show-holiday-advice (&rest _r)
   "Show diary and holiday at in calendar after movement.
 Optional argument R not used."
-  (setq r r) ; suppress Warning: Unused lexical argument `r'
   ;; - diary
+  ;; this line set displayed-month, that required for `calendar-cursor-to-date'
+  ;; it is a rare error when displayed-month dont sent, for unknown reason.
+  (calendar-redraw)
   (if (diary-list-entries (calendar-cursor-to-date t) nil)
       ;; show fancy window
       (diary-view-entries)

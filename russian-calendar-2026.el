@@ -73,7 +73,7 @@ Arguments MONTH, DAY, STRING is standard arguments for
   (mapcar #'purecopy
           '(
             (russian-calendar-2026-h 1 31  "FOSDEM https://fosdem.org")
-            (russian-calendar-2026-h 12 6 "EmacsConf https://emacsconf.org/ (will change)")
+            (russian-calendar-2026-h 12 5 "EmacsConf https://emacsconf.org/ (may change)")
             ;; (when russian-calendar-all-open-source-confs-flag
             ;;     (append
             ;;       (russian-calendar-2026-h 1 20 "Australia. Open technologies. https://2026.everythingopen.au/")
@@ -108,17 +108,17 @@ Arguments MONTH, DAY, STRING is standard arguments for
   (mapcar #'purecopy
           '(
             (russian-calendar-2026-h 2 12 "WAIC https://www.worldaicannes.com")
-            (russian-calendar-2026-h 7 14 "ACML - Tutorials https://icml.cc/ (will change)")
-            (russian-calendar-2026-h 10 22 "PyTorch (will change)")
-            (russian-calendar-2026-h 12 10 "NeurIPS https://neurips.cc/ (will change)")))
+            (russian-calendar-2026-h 7 6 "ACML - Tutorials https://icml.cc/")
+            (russian-calendar-2026-h 10 20 "PyTorch https://pytorch.org/event/pytorch-conference-2026/")
+            (russian-calendar-2026-h 12 6 "NeurIPS https://neurips.cc/")))
   "AI conferences.")
 
 (defvar russian-calendar-2026-russian-it-confs
   (mapcar #'purecopy
           '(
             (russian-calendar-2026-h 11 19 "AI Journey https://aij.ru/ (will change)")
-            (russian-calendar-2026-h 11 28 "TAdviser SummIT https://tadvisersummit.ru/ (will change)")
-            (russian-calendar-2026-h 11 11 "CNews Forum 2026: Information technology tomorrow https://cnewsforum.ru/forum/ (will change)")))
+            (russian-calendar-2026-h 5 28 "TAdviser SummIT https://tadvisersummit.ru/")
+            (russian-calendar-2026-h 11 12 "CNews Forum 2026: Information technology tomorrow https://cnewsforum.ru/forum/")))
   "Russian IT and AI Conferences.")
 
 (provide 'russian-calendar-2026)

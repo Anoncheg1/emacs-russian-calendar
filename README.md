@@ -5,8 +5,9 @@
 Eng | [Рус](./README.ru.md)
 
 # emacs-russian-calendar
+**Maintained!** # For 2026 (last update: 2026-05-04 Mon)
 
-What?
+# Feature:
 - Russian Production Calendar
 - General International holidays: Valentine's Day, April Fools' Day, Halloween.
 - Key Orthodox Christian Holidays
@@ -15,17 +16,11 @@ What?
 - AI and Russian IT conferences: PyTorh, NeurIPS, IEEE CAI, WAIC, AI Journey dec + TAdviser SummIT nov + CNews Forum nov.
 - some common calendar configuration.
 
-
-Why? Going to be maintained.
-
 Not included: regional holidays.
 
-# 2025, 2026 (updated 30/09/25)
-Require updating during the year, some conferences may change.
+# Configuration
 
-# Usage
-
-```Elisp
+```lisp
 (require 'russian-calendar)
 
 (setopt calendar-holidays (append russian-calendar-holidays
@@ -45,6 +40,8 @@ Require updating during the year, some conferences may change.
 (russian-calendar-fix-list-holidays)
 (russian-calendar-check-year-not-obsolate)
 ```
+# Usage
+M-x calendar
 
 # Features
 - Support arbitrary number of years at once
@@ -82,7 +79,7 @@ Russian IT
 - https://summit.tadviser.ru/
 - https://www.cnconf.ru/
 
-# Resources
+# Resources (not in calendar)
 Conferences:
 - https://developers.sber.ru/kak-v-sbere/events
 - https://events.yandex.ru/
@@ -113,7 +110,10 @@ Regional holidays
 - Dired history	https://github.com/Anoncheg1/dired-hist
 - Selected window contrast	https://github.com/Anoncheg1/selected-window-contrast
 - Copy link to clipboard	https://github.com/Anoncheg1/org-links
+- Restore buffer state		https://github.com/Anoncheg1/emacs-unmodified-buffer1
 - Solution for "callback hell"	https://github.com/Anoncheg1/emacs-async1
+- Call LLMs and AI agents from Org-mode ai block. https://github.com/Anoncheg1/emacs-oai
+- outline.el usage		https://github.com/Anoncheg1/emacs-outline-it
 
 ## Donate, sponsor author
 You can sponsor author crypto money directly with crypto currencies:
