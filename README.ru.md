@@ -98,7 +98,7 @@ Old Slavonic
 - Copy link to clipboard	https://github.com/Anoncheg1/org-links
 - Restore buffer state		https://github.com/Anoncheg1/emacs-unmodified-buffer1
 - Solution for "callback hell"	https://github.com/Anoncheg1/emacs-async1
-- Call LLMs and AI agents from Org-mode ai block. https://github.com/Anoncheg1/emacs-oai
+- Call LLMs and agents from Org-mode blocks. https://github.com/Anoncheg1/emacs-cui
 - outline.el usage		https://github.com/Anoncheg1/emacs-outline-it
 - hiding password in caffe	https://github.com/Anoncheg1/emacs-hidepass
 

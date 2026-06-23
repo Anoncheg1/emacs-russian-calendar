@@ -79,6 +79,8 @@
 ;; - Call LLMs and AI agents from Org-mode ai block. https://github.com/Anoncheg1/emacs-oai
 ;; - outline.el usage		https://github.com/Anoncheg1/emacs-outline-it
 ;; - hiding password in caffe	https://github.com/Anoncheg1/emacs-hidepass
+;; - TAB key reimplementation	https://github.com/Anoncheg1/emacs-indent
+;; - Dates for Org-mode headers	https://github.com/Anoncheg1/emacs-org-history
 
 ;; *DONATE MONEY*:
 ;; You can sponsor author directly with crypto currencies:
