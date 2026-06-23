@@ -101,3 +101,15 @@ Old Slavonic
 - Call LLMs and AI agents from Org-mode ai block. https://github.com/Anoncheg1/emacs-oai
 - outline.el usage		https://github.com/Anoncheg1/emacs-outline-it
 - hiding password in caffe	https://github.com/Anoncheg1/emacs-hidepass
+
+# Пожертвования направлять:
+
+- BTC (Bitcoin) address: 1CcDWSQ2vgqv5LxZuWaHGW52B9fkT5io25
+
+![](https://raw.githubusercontent.com/Anoncheg1/public-share/refs/heads/main/BTC-1CcDWSQ2vgqv5LxZuWaHGW52B9fkT5io25.png)
+
+- USDT (Tether) address: TVoXfYMkVYLnQZV3mGZ6GvmumuBfGsZzsN
+
+![](https://raw.githubusercontent.com/Anoncheg1/public-share/refs/heads/main/USDT-TVoXfYMkVYLnQZV3mGZ6GvmumuBfGsZzsN.png)
+
+- TON (Telegram) address: UQC8rjJFCHQkfdp7KmCkTZCb5dGzLFYe2TzsiZpfsnyTFt9D
