@@ -48,30 +48,14 @@ jobs:
         with:
           version: ${{ matrix.emacs_version }}
 
-      - name: Install Eask
-        uses: emacs-eask/setup-eask@master
-        with:
-          version: 'snapshot'
-
       - name: Copy repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v5
         with:
           fetch-depth: 1
 
       - name: Tests
         run: |
          emacs -Q --batch -l ert.el -l russian-calendar-2025.el -l russian-calendar-2026.el -l russian-calendar.el -l russian-calendar-tests.el -f ert-run-tests-batch-and-exit
-
-      - name: Run Makefile
-        run: |
-          make test
-          [ $? -ne 0 ] && { echo "Make test command failed, failing workflow"; exit 1; }
-          make checkdoc
-          [ $? -ne 0 ] && { echo "Make checkdoc command failed, failing workflow"; exit 1; }
-          make lint |& tee output.log # always exit with 1 error code
-          if grep -q '[0-9] issue found:' output.log ; then
-            echo "Error detected, failing workflow" ; exit 1
-          fi
 
       - name: Set up Python 3.12 for melpazoid
         uses: actions/setup-python@v5
