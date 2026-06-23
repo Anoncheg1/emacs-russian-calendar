@@ -1,25 +1,29 @@
 ;;; russian-calendar-tests.el --- Russian holidays and conferences. Updated 2024-11-22  -*- lexical-binding: t -*-
 ;; Copyright (c) 2024 github.com/Anoncheg1,codeberg.org/Anoncheg
-;; SPDX-License-Identifier: GPL-3.0-or-later
 ;; Author: github.com/Anoncheg1,codeberg.org/Anoncheg
 ;; Keywords: calendar, holidays
 ;; URL: https://github.com/Anoncheg1/emacs-russian-calendar
+;; SPDX-License-Identifier: AGPL-3.0-or-later
 
 ;;; License
-
-;; This program is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU Affero General Public License as published by
 ;; the Free Software Foundation, either version 3 of the License, or
 ;; (at your option) any later version.
 
 ;; This program is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
+;; GNU Affero General Public License for more details.
 
-;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+;; You should have received a copy of the GNU Affero General Public License
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+;; Licensed under the GNU Affero General Public License, version 3 (AGPLv3)
+;; <https://www.gnu.org/licenses/agpl-3.0.en.html>
+
 ;;; Commentary:
+
 ;; to run: emacs -batch -l ert -l pinyin-isearch.el -l pinyin-isearch-pinyin-tests.el -f ert-run-tests-batch-and-exit 2> out.log
 ;; (eval-buffer)
 ;; (ert)
