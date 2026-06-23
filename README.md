@@ -1,5 +1,6 @@
 ![build](https://github.com/Anoncheg1/emacs-russian-calendar/workflows/melpazoid/badge.svg)
 [![MELPA](https://melpa.org/packages/russian-calendar-badge.svg)](http://melpa.org/#/russian-calendar)
+![build](https://github.com/Anoncheg1/emacs-russian-calendar/workflows/melpazoid-release/badge.svg)
 [![MELPA Stable](https://stable.melpa.org/packages/russian-calendar-badge.svg)](https://stable.melpa.org/#/russian-calendar)
 
 Eng | [Рус](./README.ru.md)

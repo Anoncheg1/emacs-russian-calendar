@@ -1,14 +1,24 @@
-# melpazoid <https://github.com/riscy/melpazoid> build checks.
+# -*- fill-column: 120; -*-
 
-# If your package is on GitHub, enable melpazoid's checks by copying this file
-# to .github/workflows/melpazoid.yml and modifying RECIPE and EXIST_OK below.
+# purcell/setup-emacs - to install emacs
+#
+# 1) package-lint run from Makefile (https://github.com/purcell/package-lint)
+# 2) leotaku/elisp-check
 
-name: melpazoid
-'on': [push, pull_request]
+# purcell/setup-emacs - install emacs
+
+---
+name: melpazoid-release
+'on': {release: {types: [published]}}
+
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.ref }}
+#   cancel-in-progress: true
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+
+    runs-on: ubuntu-latest  # , macos-latest-large, windows-latest - github waiting is too large
 
     timeout-minutes: 15
 
@@ -28,28 +38,44 @@ jobs:
           # - 29.2
           # - 29.3
           - 29.4
-          - 30.2
+          - 30.1
           - release-snapshot
 
     steps:
-      - name: Get repo to access in conteiner
-        uses: actions/checkout@v5
-        with:
-          fetch-depth: 1
-
-      - name: Set up Python 3.12 for melpazoid
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.12
-
       - name: Install Emacs
         uses: purcell/setup-emacs@master
         with:
           version: ${{ matrix.emacs_version }}
 
+      - name: Install Eask
+        uses: emacs-eask/setup-eask@master
+        with:
+          version: 'snapshot'
+
+      - name: Copy repo
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
       - name: Tests
         run: |
          emacs -Q --batch -l ert.el -l russian-calendar-2025.el -l russian-calendar-2026.el -l russian-calendar.el -l russian-calendar-tests.el -f ert-run-tests-batch-and-exit
+
+      - name: Run Makefile
+        run: |
+          make test
+          [ $? -ne 0 ] && { echo "Make test command failed, failing workflow"; exit 1; }
+          make checkdoc
+          [ $? -ne 0 ] && { echo "Make checkdoc command failed, failing workflow"; exit 1; }
+          make lint |& tee output.log # always exit with 1 error code
+          if grep -q '[0-9] issue found:' output.log ; then
+            echo "Error detected, failing workflow" ; exit 1
+          fi
+
+      - name: Set up Python 3.12 for melpazoid
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
 
       - name: Install melpazoid
         run: |
@@ -58,7 +84,7 @@ jobs:
           git clone https://github.com/riscy/melpazoid.git ~/melpazoid
           pip install ~/melpazoid
 
-      - name: Run melpazoid
+      - name: Melpazoid check
         env:
           LOCAL_REPO: ${{ github.workspace }}
           # RECIPE is your recipe as written for MELPA:
