@@ -5,6 +5,7 @@
 ;; Author: github.com/Anoncheg1,codeberg.org/Anoncheg
 ;; Keywords: calendar, holidays
 ;; URL: https://github.com/Anoncheg1/emacs-russian-calendar
+;; SPDX-License-Identifier: AGPL-3.0-or-later
 
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU Affero General Public License as published by
@@ -116,8 +117,7 @@ Arguments MONTH, DAY, STRING is standard arguments for
           '(
             (russian-calendar-2025-h 11 19 "AI Journey https://aij.ru/")
             (russian-calendar-2025-h 11 27 "TAdviser SummIT https://tadvisersummit.ru/")
-            (russian-calendar-2025-h 11 11 "CNews Forum 2025: Information technology tomorrow https://cnewsforum.ru/forum/register#registration")
-            ))
+            (russian-calendar-2025-h 11 11 "CNews Forum 2025: Information technology tomorrow https://cnewsforum.ru/forum/register#registration")))
   "Russian IT and AI Conferences.")
 
 (provide 'russian-calendar-2025)

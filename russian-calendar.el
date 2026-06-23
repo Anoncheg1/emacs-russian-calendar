@@ -7,6 +7,9 @@
 ;; URL: https://github.com/Anoncheg1/emacs-russian-calendar
 ;; Version: 0.1.2
 ;; Package-Requires: ((emacs "29.4"))
+;; SPDX-License-Identifier: AGPL-3.0-or-later
+
+;;; License
 
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU Affero General Public License as published by
@@ -25,9 +28,9 @@
 ;; <https://www.gnu.org/licenses/agpl-3.0.en.html>
 
 ;;; Commentary:
-;;
-;; 2025  (updated 24/09/25)
-;;
+
+;; 2026  (updated 2026-05-04)
+
 ;; What:
 ;; - Russian holidays
 ;; - International holidays: Valentine's Day, April Fools' Day, Halloween
@@ -118,14 +121,17 @@ Otherwise only FOSDEM and EmacsConf enabled"
   (russian-calendar-concat russian-calendar-2025-holidays
                            russian-calendar-2026-holidays)
   "Production calendar.")
+
 (defvar russian-calendar-open-source-confs
     (russian-calendar-concat russian-calendar-2025-open-source-confs
                              russian-calendar-2026-open-source-confs)
     "Conferences in field of open technologies.")
+
 (defvar russian-calendar-ai-confs
     (russian-calendar-concat russian-calendar-2025-ai-confs
                              russian-calendar-2026-ai-confs)
     "Conferences in field of AI technologies.")
+
 (defvar russian-calendar-russian-it-confs
     (russian-calendar-concat russian-calendar-2025-russian-it-confs
                              russian-calendar-2026-russian-it-confs)
@@ -237,7 +243,7 @@ The return value has the form ((MONTH DAY YEAR) STRING)."
   "Old slavic folk holidays.")
 ;; --- --- --- Localizations And Configurations
 
-(defun russian-calendar-localize()
+(defun russian-calendar-localize ()
   "Translate month, days of week, etc to Russian language."
   (setq calendar-week-start-day 1
         calendar-day-name-array ["Воскресенье" "Понедельник" "Вторник" "Среда"
@@ -263,7 +269,7 @@ The return value has the form ((MONTH DAY YEAR) STRING)."
   ;; (setopt calendar-weekend-days '(0 6)) ; by dafault
   )
 
-(defun russian-calendar-show-diary-holidays-in-calendar()
+(defun russian-calendar-show-diary-holidays-in-calendar ()
  "Display holidays and diary in calendar."
   ;; (setq calendar-holiday-marker 'holiday) ; by dafault - red background
   ;; (setq diary-entry-marker 'diary) ; by default - red foreground
