@@ -74,7 +74,11 @@ Arguments MONTH, DAY, STRING is standard arguments for
   (mapcar #'purecopy
           '(
             (russian-calendar-2026-h 1 31  "FOSDEM https://fosdem.org")
-            (russian-calendar-2026-h 12 5 "EmacsConf https://emacsconf.org/ (may change)")
+            June 27
+            (russian-calendar-2026-h 6 27 "EmacsConf Call for Participation.")
+            (russian-calendar-2026-h 9 18 "EmacsConf Proposal submission deadline.")
+            (russian-calendar-2026-h 12 5 "EmacsConf https://emacsconf.org/")
+
             ;; (when russian-calendar-all-open-source-confs-flag
             ;;     (append
             ;;       (russian-calendar-2026-h 1 20 "Australia. Open technologies. https://2026.everythingopen.au/")
