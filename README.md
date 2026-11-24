@@ -6,9 +6,8 @@
 Eng | [Рус](./README.ru.md)
 
 # emacs-russian-calendar
-Emacs packa
 
-**Maintained!** For **2026** (last update: 2026-05-04 Mon) Version: 0.1.2
+**Maintained!** For **2027** (last update: 2026-11-24)  Version: 0.1.3
 
 # Feature:
 - Russian Production Calendar

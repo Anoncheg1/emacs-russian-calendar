@@ -1,10 +1,10 @@
 ;;; russian-calendar.el --- Russian holidays and conferences. Updated 2025-09-30  -*- lexical-binding: t -*-
 
-;; Copyright (c) 2025 github.com/Anoncheg1,codeberg.org/Anoncheg
+;; Copyright (c) 2025-2027 github.com/Anoncheg1,codeberg.org/Anoncheg
 ;; Author: github.com/Anoncheg1,codeberg.org/Anoncheg
 ;; Keywords: calendar, holidays
 ;; URL: https://github.com/Anoncheg1/emacs-russian-calendar
-;; Version: 0.1.2
+;; Version: 0.1.3
 ;; Package-Requires: ((emacs "29.4"))
 ;; SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -28,7 +28,7 @@
 
 ;;; Commentary:
 
-;; 2026  (updated 2026-05-04)
+;; 2027  (added at 2026-11-24)
 
 ;; What:
 ;; - Russian holidays
