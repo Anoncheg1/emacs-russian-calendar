@@ -1,7 +1,7 @@
 ;;; russian-calendar-2027.el --- Holidays and conferences  -*- lexical-binding: t -*-
 
 ;; Copyright (c) 2027 github.com/Anoncheg1,codeberg.org/Anoncheg
-;; Author: github.com/Anoncheg1,codeberg.org/Anoncheg
+;; Author: Anoncheg1 Anoncheg <github.com/Anoncheg1,codeberg.org/Anoncheg>
 ;; Keywords: calendar, holidays
 ;; URL: https://github.com/Anoncheg1/emacs-russian-calendar
 ;; SPDX-License-Identifier: AGPL-3.0-or-later

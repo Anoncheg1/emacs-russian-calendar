@@ -1,7 +1,7 @@
 ;;; russian-calendar-2026.el --- Holidays and conferences  -*- lexical-binding: t -*-
 
 ;; Copyright (c) 2026 github.com/Anoncheg1,codeberg.org/Anoncheg
-;; Author: github.com/Anoncheg1,codeberg.org/Anoncheg
+;; Author: Anoncheg1 Anoncheg <github.com/Anoncheg1,codeberg.org/Anoncheg>
 ;; Keywords: calendar, holidays
 ;; URL: https://github.com/Anoncheg1/emacs-russian-calendar
 ;; SPDX-License-Identifier: AGPL-3.0-or-later
@@ -42,7 +42,7 @@ Arguments MONTH, DAY, STRING is standard arguments for
 ;; (defalias 'holidayf-2026 'russian-calendar-holiday-fixed-2026)
 
 (defvar russian-calendar-2026-holidays
-  (mapcar #'purecopy
+  (mapcar #'identity
           '(
           (holiday-fixed 1 1 "Вых. Новогодние каникулы")
           (holiday-fixed 1 2 "Вых. Новогодние каникулы")
@@ -71,7 +71,7 @@ Arguments MONTH, DAY, STRING is standard arguments for
   "Russian calendar holidays.")
 
 (defvar russian-calendar-2026-open-source-confs
-  (mapcar #'purecopy
+  (mapcar #'identity
           '(
             (russian-calendar-2026-h 1 31  "FOSDEM https://fosdem.org")
             (russian-calendar-2026-h 6 27 "EmacsConf Call for Participation.")
@@ -109,7 +109,7 @@ Arguments MONTH, DAY, STRING is standard arguments for
   "Open Source conferences.")
 
 (defvar russian-calendar-2026-ai-confs
-  (mapcar #'purecopy
+  (mapcar #'identity
           '(
             (russian-calendar-2026-h 2 12 "WAIC https://www.worldaicannes.com")
             (russian-calendar-2026-h 7 6 "ACML - Tutorials https://icml.cc/")
@@ -118,7 +118,7 @@ Arguments MONTH, DAY, STRING is standard arguments for
   "AI conferences.")
 
 (defvar russian-calendar-2026-russian-it-confs
-  (mapcar #'purecopy
+  (mapcar #'identity
           '(
             (russian-calendar-2026-h 11 19 "AI Journey https://aij.ru/ (will change)")
             (russian-calendar-2026-h 5 28 "TAdviser SummIT https://tadvisersummit.ru/")
