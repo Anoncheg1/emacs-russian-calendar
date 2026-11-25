@@ -7,7 +7,7 @@ Eng | [Рус](./README.ru.md)
 
 # emacs-russian-calendar
 
-**Maintained!** For **2027** (last update: 2026-11-24)  Version: 0.1.3
+**Maintained!** For **2027** (last update: 2026-11-25)  Version: 0.1.3
 
 # Feature:
 - Russian Production Calendar
@@ -54,7 +54,7 @@ For `~/.emacs` file:
 
 # Sources
 Production Calendar:
-- https://www.consultant.ru/law/ref/calendar/proizvodstvennye/2024/
+- https://www.consultant.ru/law/ref/calendar/proizvodstvennye/2027/
 - https://ovodov.me/trud.ics
 
 Emacs and Open source:

@@ -52,28 +52,28 @@ Arguments MONTH, DAY, STRING is standard arguments for
           (holiday-fixed 1 6		"Вых. Новогодние каникулы")
           (holiday-fixed 1 7		"Вых. Рождество Христово")
           (holiday-fixed 1 8		"Вых. Новогодние каникулы")
-          (holiday-fixed 1 9		"Вых. Новогодние каникулы")
 
+          (russian-calendar-2027-h 2 20 "Сокр. пер. День защитника Отечества")
+          (russian-calendar-2027-h 2 22 "Вых. пер. День защитника Отечества")
           (holiday-fixed 2 23		"Вых. День защитника Отечества")
 
           (holiday-fixed 3 8		"Вых. Международный женский день")
-          (russian-calendar-2027-h 3 9	"Вых. после Международный женский день")
+
+          (russian-calendar-2027-h 4 30 "Сокр. пер. Праздник Весны и Труда")
 
           (holiday-fixed 5 1		"Вых. Праздник Весны и Труда")
-          (russian-calendar-2027-h 5 8	"* Сокращённый день перед День Победы")
-          (holiday-fixed 5 9		"Вых. День Победы")
+          (russian-calendar-2027-h 5 3	"Вых. пос. Праздник Весны и Труда")
 
-          (russian-calendar-2027-h 6 11 "* Сокращённый день перед День России")
+          (holiday-fixed 5 9		"Вых. День Победы")
+          (russian-calendar-2027-h 5 10 "Вых. пос. День Победы")
+
+          (russian-calendar-2027-h 6 11 "Сокр. пер. День России")
           (holiday-fixed 6 12		"Вых. День России")
+          (russian-calendar-2027-h 6 14 "Вых. пос. День России")
 
-          (russian-calendar-2027-h 4 30 "* Сокращённый день перед Праздник Весны и Труда")
-          (holiday-fixed 5 1		"Вых. Праздник Весны и Труда")
-
-          (russian-calendar-2027-h 5 8 "* Сокращённый день перед День Победы")
-          (holiday-fixed 5 9		"Вых. День Победы")
-
-          (russian-calendar-2027-h 11 3 "* Сокращённый день перед День народного единства")
+          (russian-calendar-2027-h 11 3 "Сокр. пер. День народного единства")
           (holiday-fixed 11 4		"Вых. День народного единства")
+          (russian-calendar-2027-h 11 5 "Вых. пос. День народного единства")
 
           (holiday-fixed 12 31 "Вых. Новогодние каникулы")))
   "Russian calendar holidays.")

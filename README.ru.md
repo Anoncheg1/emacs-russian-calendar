@@ -3,7 +3,7 @@ Eng (./README.md) | Рус
 # emacs-russian-calendar
 Emacs пакет с датами и праздниками для `M-x calendar`, и некоторыми улучшениями.
 
-**Актвно поддерживается!** Для **2027** (последнее обновление: 2026-11-24 пон)
+**Актвно поддерживается!** Для **2027** (последнее обновление: 2026-11-25)
 
 #
 - Cветские праздники - производственный календарь.
@@ -48,7 +48,7 @@ Emacs пакет с датами и праздниками для `M-x calendar`
 
 # Ссылки
 Russian holidays:
-- https://www.consultant.ru/law/ref/calendar/proizvodstvennye/2024/
+- https://www.consultant.ru/law/ref/calendar/proizvodstvennye/2027/
 - https://ovodov.me/trud.ics
 
 Emacs and Open source:

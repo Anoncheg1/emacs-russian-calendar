@@ -28,7 +28,7 @@
 
 ;;; Commentary:
 
-;; 2027  (added at 2026-11-24)
+;; 2027  (added at 2026-11-25)
 
 ;; What:
 ;; - Russian holidays
@@ -101,8 +101,8 @@
 (require 'holidays)
 (require 'cal-dst)
 (require 'solar)
-(require 'russian-calendar-2025)
 (require 'russian-calendar-2026)
+(require 'russian-calendar-2027)
 
 (defcustom russian-calendar-all-open-source-confs-flag nil
   "Non-nil means enable all open source conferences.
@@ -123,23 +123,23 @@ Otherwise only FOSDEM and EmacsConf enabled"
    (seq-copy (apply #'append args))))
 
 (defvar russian-calendar-holidays
-  (russian-calendar-concat russian-calendar-2025-holidays
-                           russian-calendar-2026-holidays)
+  (russian-calendar-concat russian-calendar-2026-holidays
+                           russian-calendar-2027-holidays)
   "Production calendar.")
 
 (defvar russian-calendar-open-source-confs
-    (russian-calendar-concat russian-calendar-2025-open-source-confs
-                             russian-calendar-2026-open-source-confs)
+    (russian-calendar-concat russian-calendar-2026-open-source-confs
+                             russian-calendar-2027-open-source-confs)
     "Conferences in field of open technologies.")
 
 (defvar russian-calendar-ai-confs
-    (russian-calendar-concat russian-calendar-2025-ai-confs
-                             russian-calendar-2026-ai-confs)
+    (russian-calendar-concat russian-calendar-2026-ai-confs
+                             russian-calendar-2027-ai-confs)
     "Conferences in field of AI technologies.")
 
 (defvar russian-calendar-russian-it-confs
-    (russian-calendar-concat russian-calendar-2025-russian-it-confs
-                             russian-calendar-2026-russian-it-confs)
+    (russian-calendar-concat russian-calendar-2026-russian-it-confs
+                             russian-calendar-2027-russian-it-confs)
     "Russia IT conferences.")
 ;; --- --- --- General International Holidays
 
