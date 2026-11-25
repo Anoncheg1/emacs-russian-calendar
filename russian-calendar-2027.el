@@ -42,7 +42,7 @@ Arguments MONTH, DAY, STRING is standard arguments for
 ;; (defalias 'holidayf-2027 'russian-calendar-holiday-fixed-2027)
 
 (defvar russian-calendar-2027-holidays
-  (mapcar #'purecopy
+  (mapcar #'identity
           '(
           (holiday-fixed 1 1		"Вых. Новогодние каникулы")
           (holiday-fixed 1 2		"Вых. Новогодние каникулы")
@@ -79,7 +79,7 @@ Arguments MONTH, DAY, STRING is standard arguments for
   "Russian calendar holidays.")
 
 (defvar russian-calendar-2027-open-source-confs
-  (mapcar #'purecopy
+  (mapcar #'identity
           '(
             (russian-calendar-2027-h 1 30  "FOSDEM https://fosdem.org")
             (russian-calendar-2027-h 1 31  "FOSDEM https://fosdem.org")
@@ -118,7 +118,7 @@ Arguments MONTH, DAY, STRING is standard arguments for
   "Open Source conferences.")
 
 (defvar russian-calendar-2027-ai-confs
-  (mapcar #'purecopy
+  (mapcar #'identity
           '(
             (russian-calendar-2027-h 2 11 "WAIC https://www.worldaicannes.com")
             (russian-calendar-2027-h 7 31 "ACML - Tutorials https://icml.cc/")
@@ -127,7 +127,7 @@ Arguments MONTH, DAY, STRING is standard arguments for
   "AI conferences.")
 
 (defvar russian-calendar-2027-russian-it-confs
-  (mapcar #'purecopy
+  (mapcar #'identity
           '(
             (russian-calendar-2027-h 11 26 "(will change) AI Journey https://aij.ru/")
             (russian-calendar-2027-h 5 28 "(will change) TAdviser SummIT https://tadvisersummit.ru/")

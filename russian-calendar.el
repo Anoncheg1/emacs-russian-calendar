@@ -1,7 +1,7 @@
 ;;; russian-calendar.el --- Russian holidays and conferences. Updated 2025-09-30  -*- lexical-binding: t -*-
 
 ;; Copyright (c) 2025-2027 github.com/Anoncheg1,codeberg.org/Anoncheg
-;; Author: github.com/Anoncheg1,codeberg.org/Anoncheg
+;; Author: Anoncheg1 Anoncheg <github.com/Anoncheg1,codeberg.org/Anoncheg>
 ;; Keywords: calendar, holidays
 ;; URL: https://github.com/Anoncheg1/emacs-russian-calendar
 ;; Version: 0.1.3
@@ -144,7 +144,7 @@ Otherwise only FOSDEM and EmacsConf enabled"
 ;; --- --- --- General International Holidays
 
 (defvar russian-calendar-general-holidays
-  (mapcar #'purecopy
+  (mapcar #'identity
           '(
             (holiday-fixed 2 14 "Valentine's Day")
             (holiday-fixed 4 1 "April Fools' Day")
@@ -154,7 +154,7 @@ Otherwise only FOSDEM and EmacsConf enabled"
 ;; --- --- --- Key Orthodox Christian Feasts
 
 (defvar russian-calendar-orthodox-christian-holidays
-  (mapcar #'purecopy
+  (mapcar #'identity
   '(
     (holiday-fixed 1  7 "Рождество Христово")
     (holiday-fixed 1 19 "Крещение Господне (Богоявление)")
@@ -189,7 +189,7 @@ Otherwise only FOSDEM and EmacsConf enabled"
 
 
 (defvar russian-calendar-orthodox-christian-holidays-eng
-  (mapcar #'purecopy
+  (mapcar #'identity
   '(
     (holiday-fixed 1  7 "Christmas")
     (holiday-fixed 1 19 "Epiphany")
@@ -232,7 +232,7 @@ The return value has the form ((MONTH DAY YEAR) STRING)."
     (holiday-fixed month day string)))
 
 (defvar russian-calendar-old-slavic-fests
-  (mapcar #'purecopy
+  (mapcar #'identity
           '(
             (russian-calendar-eqsols 0 "Весеннее равноденствие") ;; 2024-2029:20
             (russian-calendar-eqsols 1 "Летнее солнцестояние") ;; 20 июня 2024:20 2025-2027:21 2028:20 2029:21
