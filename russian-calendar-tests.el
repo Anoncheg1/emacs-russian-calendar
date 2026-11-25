@@ -36,6 +36,16 @@
 (require 'ert)
 (require 'russian-calendar)
 
+(defun russian-calendar--load-all-years (&optional dir)
+  "Load all `russian-calendar-YYYY.el' files in DIR (or `default-directory') in order."
+  (let* ((base-dir (or dir default-directory))
+         (files (directory-files base-dir t "\\`russian-calendar-[0-9]\\{4\\}\\.el\\'"))
+         (sorted-files (sort files #'string<)))
+    (dolist (file sorted-files)
+      (load file nil 'nomessage))))
+
+(russian-calendar--load-all-years)
+
 ;; (defvar russian-calendar-2026-holidays
 ;;   (mapcar 'purecopy
 ;;           '(
@@ -56,14 +66,14 @@
 (russian-calendar-calendar-holiday-list-slide
                                                  russian-calendar-2026-holidays
                                                  ;; holiday-christian-holidays
-                                                 2026
-                                                 2026
+                                                 2027
+                                                 2027
                                                  )
 
 (ert-deftest russian-calendar--test1 ()
   (with-temp-buffer
     (setq displayed-month 1
-          displayed-year 2026)
+          displayed-year 2027)
     ;; ;; ------- 1
     ;; (let ((holidays '((holiday-fixed 1 6 "Epiphany")
     ;;                   (holiday-fixed 2 9 "Радоница")
@@ -119,14 +129,14 @@
     (mapc 'print (russian-calendar-calendar-holiday-list-slide
             russian-calendar-2026-holidays
             ;; holiday-christian-holidays
-            2026
-            2026
+            2027
+            2027
      ))
     (print (russian-calendar-calendar-holiday-list-slide
             russian-calendar-2026-holidays
             ;; holiday-christian-holidays
-            2026
-            2026
+            2027
+            2027
      ))
 
     (makunbound 'displayed-month)
@@ -141,14 +151,14 @@
 (ert-deftest russian-calendar--calendar-holiday-list1 ()
   (with-temp-buffer
     (setq displayed-month 2
-          displayed-year 2026)
+          displayed-year 2027)
     (let (
-          (russian-calendar-2026-holidays
+          (russian-calendar-2027-holidays
       (mapcar 'purecopy
               '(
-                '(((12 28 2026) "Рабочий день2"))
-                '(((2 30 2026) "Рабочий день2"))
-                '(((12 30 2026) "Вых. Выходной"))
+                '(((12 28 2027) "Рабочий день2"))
+                '(((2 30 2027) "Рабочий день2"))
+                '(((12 30 2027) "Вых. Выходной"))
                 (holiday-fixed 1 31 "Вых. перед Новый год")
                 (holiday-fixed 1 1 "Вых. перед Н")
                 )
@@ -157,11 +167,11 @@
           )
 
       (should (equal (russian-calendar-calendar-holiday-list-slide
-                      russian-calendar-2026-holidays
+                      russian-calendar-2027-holidays
                       ;; holiday-christian-holidays
-                      2026
-                      2026)
-                     '(((1 1 2026) "Вых. перед Н") ((1 31 2026) "Вых. перед Новый год") ((2 30 2026) "Рабочий день2") ((12 28 2026) "Рабочий день2") ((12 30 2026) "Вых. Выходной") ((2 30 2026) "Рабочий день2") ((12 28 2026) "Рабочий день2") ((12 30 2026) "Вых. Выходной") ((2 30 2026) "Рабочий день2") ((12 28 2026) "Рабочий день2") ((12 30 2026) "Вых. Выходной") ((2 30 2026) "Рабочий день2") ((12 28 2026) "Рабочий день2") ((12 30 2026) "Вых. Выходной"))
+                      2027
+                      2027)
+                     '(((1 1 2027) "Вых. перед Н") ((1 31 2027) "Вых. перед Новый год") ((2 30 2027) "Рабочий день2") ((12 28 2027) "Рабочий день2") ((12 30 2027) "Вых. Выходной") ((2 30 2027) "Рабочий день2") ((12 28 2027) "Рабочий день2") ((12 30 2027) "Вых. Выходной") ((2 30 2027) "Рабочий день2") ((12 28 2027) "Рабочий день2") ((12 30 2027) "Вых. Выходной") ((2 30 2027) "Рабочий день2") ((12 28 2027) "Рабочий день2") ((12 30 2027) "Вых. Выходной"))
                      ))
       )
     (makunbound 'displayed-month)
@@ -169,23 +179,23 @@
     ))
 ;; --------- 7 concat
 
-;; (mapc 'print (russian-calendar-concat russian-calendar-2026-open-source-confs
+;; (mapc 'print (russian-calendar-concat russian-calendar-2027-open-source-confs
 ;;                                       russian-calendar-2025-open-source-confs))
-;; (mapc 'print russian-calendar-2026-open-source-confs)
+;; (mapc 'print russian-calendar-2027-open-source-confs)
 
 
 (ert-deftest russian-calendar--calendar-holiday-list2 ()
   (with-temp-buffer
     (setq displayed-month 2
-          displayed-year 2026)
+          displayed-year 2027)
       (should (equal (russian-calendar-calendar-holiday-list-slide
-                      russian-calendar-2026-open-source-confs
-                      2026
-                      2026)
+                      russian-calendar-2027-open-source-confs
+                      2027
+                      2027)
                      (russian-calendar-calendar-holiday-list-slide
                       russian-calendar-open-source-confs
-                      2026
-                      2026)))
+                      2027
+                      2027)))
 
     (makunbound 'displayed-month)
     (makunbound 'displayed-year)
